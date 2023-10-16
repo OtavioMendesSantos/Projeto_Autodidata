@@ -5,7 +5,7 @@ numero, soma, nulo, somapares, divisiveis5, contador : inteiro
 inicio
 Escreval("----------------------------------------------")
 Para contador:= 1 ate 5 faca
-   Escreva("informe o valor do ", contador, "° número: ")
+   Escreva("informe o valor do ", contador, "ï¿½ nï¿½mero: ")
       Leia(numero)
    Se numero = 0 entao
       nulo <- nulo + 1
@@ -22,9 +22,9 @@ Para contador:= 1 ate 5 faca
    soma <- soma + numero
 fimpara
 Escreval("----------------------------------------------")
-Escreval("A soma entre todos os números é: ", soma)
-Escreval("A média entre esses valores é: ", media)
-Escreval("A soma dentre os números pares é: ", somapares)
+Escreval("A soma entre todos os nï¿½meros ï¿½: ", soma)
+Escreval("A mï¿½dia entre esses valores ï¿½: ", media)
+Escreval("A soma dentre os nï¿½meros pares ï¿½: ", somapares)
 Escreval("Valore nulos: ", nulo)
 Escreval("Divisiveis por 5: ", divisiveis5)
 Escreval("----------------------------------------------")
