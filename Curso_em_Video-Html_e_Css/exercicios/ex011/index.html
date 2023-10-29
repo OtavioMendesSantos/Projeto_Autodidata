@@ -15,5 +15,19 @@
     </picture>
     <!--Na tag <picture> deve conter apenas uma "imagem base", ou seja, apenas uma tag <img>-->
     <!--A ordem na tag <picture> é MUITO importante-->
+    
+    <h1>Reproduzindo Áudios</h1>
+    <p>Vamos aprender a reproduzir Áudios em HTML5</p>
+    
+    <audio preload="metadata" autoplay controls loop>
+        <source src="midia/heroes_tonight_audio.mp3" type="audio/mpeg">
+        <source src="midia/heroes_tonight_audio.m4a" type="audio/m4a">
+        <p>Seu navegador não aceita arquivos de audio</p>
+    </audio>
+    <dl>
+
+    <p>Áudio em m4a</p>
+    <audio src="midia/heroes_tonight_audio.m4a" controls type="audio/m4a"></audio>
+    <!--Muitos navegadores não suportam um determinado tipo de arquivo, por isso é uma boa prática se utilizar-->
 </body>
 </html>
