@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospedagem de Videos</title>
+</head>
+<body>
+    <h1>Hospedagem de Vídeos</h1>
+
+    <h2>Hospedagem Local</h2>
+    <p>Podemos hospedar um vídeo localmente, no nosso próprio servidor</p>
+    
+    <video width="500" poster="imagens/thumbnail_video.jpg" controls autoplay loop>
+
+        <source src="midia/meu_video.mp4" type="video/mp4">
+        <source src="midia/meu_video.webm" type="video/webm">
+        <!--Nos meus arquivos, tenho apenas o meu_video.mp4, pois o webm estava ocupando muito espaço sem necessidade.-->
+        <p>seu navegador não tem compatibilidade com arquivos de video</p> 
+    </video>
+    
+    <p>O problema desta forma de hospedagem é que, obviamente, há um grande consumo de banda/internet</p>
+
+    <h2>Hospedagem Externa</h2>
+    <p>Podemos hospedar vídeos de plataformas externas como: Youtube e Vimeo</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/jK2aIUmmdP4?si=y-ACPgm3dMr86sNK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <iframe src="https://player.vimeo.com/video/185871317?h=a63f42bf1b" width="560" height="315" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    <p><a href="https://vimeo.com/185871317">Simone Cirillo - 2016 Character Animation Reel</a> from <a href="https://vimeo.com/user20577912">Simone Cirillo</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+</body>
+</html>
