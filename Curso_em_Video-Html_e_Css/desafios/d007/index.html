@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagem Flexível</title>
+</head>
+<body>
+    <h1>Imagem  Flexível</h1>
+    <p>Amplie e diminua o tamanho da tela para ver a imagem mudando</p>
+    <picture>
+        <source srcset="imagens/paisagem-p.png" media="(max-width: 600px)" alt="Paisagem mulher braços abertos">
+        <source srcset="imagens/paisagem-m.png" media="(max-width: 800px)" alt="Paisagem mulher braços abertos">
+        <img src="imagens/paisagem-g.png" alt="Paisagem mulher braços abertos">
+    </picture>
+</body>
+</html>
