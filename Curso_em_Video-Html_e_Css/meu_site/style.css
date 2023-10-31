@@ -10,3 +10,20 @@ h1{
 p{
     text-align: justify;
 }
+
+table{
+    border: 1px solid black;
+}
+
+th{
+    background-color: rgba(128, 128, 128, 0.503);
+}
+
+td{
+    border: 1px solid black;
+}
+
+caption{
+    background-color: black;
+    color: white;
+}
