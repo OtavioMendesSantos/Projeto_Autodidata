@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+            font: normal 18pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciando Estudos com o DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript</p>
+    <div id="msg">Clique em mim</div>
+    <!-- Podemos colocar neste div, id, name, class -->
+    <script>
+        window.document.write('<hr>')
+        window.document.write('Olá Mundo<br>')
+        window.document.write(document.characterSet, '<br>')
+        window.document.write(window.navigator.appName, '<br>')
+        window.document.write(window.document.URL, '<br>')
+        
+        window.document.write('<hr>')
+        window.document.write('<h2>Selecionando arquivos por Marca</h2>')
+        window.document.write('<code>getElementsByTagName()</code><br>')
+        var p1 = window.document.getElementsByTagName('p')[0] //Contagem começa em 0
+        window.document.write('No primeiro parágrafo está escrito assim: ' + p1.innerText + '<br>') //innerText: texto que está dentro do parágrafo
+        p1.style.color = 'red'
+        var p2 = window.document.getElementsByTagName('p')[1]
+        window.document.write('No segundo parágrafo está escrito assim: ' + p2.innerHTML ) //innerHTML: Texto com as formatações do código HTML
+        
+        window.document.write('<hr>')
+        window.document.write('<h2>Selecionando arquivos por ID</h2>')
+        window.document.write('<code>getElementById()</code><br>')
+        /* 
+        var d = window.document.getElementById('msg')
+        d.style.backgroundColor = 'gray'
+        //d.innerText = 'Estou aguardando'
+        window.document.getElementById('msg').innerText = 'Olá! :)'
+        */
+
+        window.document.write('<hr>')
+        window.document.write('<h2>Selecionando arquivos por Nome</h2>')
+        window.document.write('<code>getElementByName()</code><br>')
+        /*
+        var d = window.document.getElementsByName('msg')[0].style.backgroundColor = 'gray'
+        */  
+
+        window.document.write('<hr>')
+        window.document.write('<h2>Selecionando arquivos por Classe</h2>')
+        window.document.write('<code>getElementByClassName()</code><br>')
+        /*
+        window.document.write('<code>getElementByClassName()</code><br>')
+        var d = window.document.getElementsByClassName('msg')[0].innerText = 'oi' 
+        */
+
+        window.document.write('<hr>')
+        window.document.write('<h2>Selecionando arquivos por Seletor</h2>')
+        var d = window.document.querySelector('div#msg')
+        d.style.color = 'blue'
+        
+        //id é representado por # | classe é representada por .
+    </script>
+</body>
+</html>
