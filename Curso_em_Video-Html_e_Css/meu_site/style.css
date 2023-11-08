@@ -27,3 +27,24 @@ caption{
     background-color: black;
     color: white;
 }
+
+nav{
+    background-color: rgb(255, 255, 120);
+    border-style: solid;
+    border-radius: 5%;
+    text-indent: 10pt;
+}
+
+div.button{
+    width: 200px;
+    height: 100px;
+    font-size: 20pt;
+    text-align: center;
+    
+    border-style: solid;
+    border-color: black;
+    border-radius: 5%;
+    background-color: red;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../Imagens/icone_sorridente.ico" type="image/x-icon">
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <p>Para voltar a página inicial, basta <a href="../meu_site.html" rel="prev">clicar aqui</a></p>
+    <h1>Funcionalidades JavaScript</h1>
+    <div class="button" id="corfundo" onclick="corfundo()">
+        Aperte aqui para mudar a cor de fundo do site
+        <!-- Como posso colocar um parágrafo aqui sem comp -->
+    </div>
+
+    <script>
+        
+        function corfundo(){
+        var corfundo = document.querySelector('#corfundo')
+        corfundo.innerHTML = ('clicou')
+        window.document.body.style.backgroundColor = 'gray'
+        }
+        
+        
+    </script>
+</body>
+</html>
