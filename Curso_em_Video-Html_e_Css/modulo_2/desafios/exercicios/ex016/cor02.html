@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradiente em CSS</title>
+    <style>
+        * { /* Configurações Globais das CSS */
+            height: 100%;
+        }
+        body{
+            background-image: linear-gradient(to top,#2C4373, #221959, #772B8C, #F22EAE, #F249E7);
+            /* Primeiro se indica a direção, e depois a quantidade e quais cores desejar */
+            /* Para cima: 'to top'; Para a direita: 'to right'; Para baixo: 'to bottom'; Podemos também usar os graus: '1~360deg'  */
+            background-attachment: fixed;
+        }
+        h1{
+            
+            border:1px solid #221959;
+            background-color: #221959;
+            color: white;
+            border-radius: 5%;
+            height: auto;
+            
+
+            
+            padding: 10px;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Testando cores</h1>
+</body>
+</html>
