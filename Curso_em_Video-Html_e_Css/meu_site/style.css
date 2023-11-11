@@ -5,23 +5,18 @@
 .Virtual-Girl-4-hex { color: #010440; }
 .Virtual-Girl-5-hex { color: #010326; }
 
-/* Color Theme Swatches in RGBA */
-.Virtual-Girl-1-rgba { color: rgba(7, 2, 140, 1); }
-.Virtual-Girl-2-rgba { color: rgba(2, 7, 114, 1); }
-.Virtual-Girl-3-rgba { color: rgba(1, 6, 89, 1); }
-.Virtual-Girl-4-rgba { color: rgba(1, 4, 63, 1); }
-.Virtual-Girl-5-rgba { color: rgba(0, 2, 38, 1); }
-
-/* Color Theme Swatches in HSLA */
-.Virtual-Girl-1-hsla { color: hsla(241, 96, 28, 1); }
-.Virtual-Girl-2-hsla { color: hsla(236, 96, 22, 1); }
-.Virtual-Girl-3-hsla { color: hsla(236, 96, 17, 1); }
-.Virtual-Girl-4-hsla { color: hsla(236, 96, 12, 1); }
-.Virtual-Girl-5-hsla { color: hsla(236, 96, 7, 1); }
-
 body{
-    background-color: antiquewhite;
+    background-image: white;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+main{
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    width: 900px;
+    margin: auto;
 }
 
 h1{
@@ -51,10 +46,19 @@ caption{
 }
 
 nav{
-    background-color: rgb(255, 255, 120);
+    background-color: #07038C;
     border-style: solid;
-    border-radius: 5%;
+    border-radius: 15px;
     text-indent: 10pt;
+    padding: 10px;
+    width: 800px;
+    color: white;
+    margin: auto;
+    
+}
+
+a.link_menu{
+    color: white;
 }
 
 div.button{
@@ -91,3 +95,11 @@ div.cores{
 #federal_blue{ background-color: #020659;}
 #navy_blue{background-color: #020873;}
 #ultramarine{background-color: #07038C;}
+
+#cabeçalho{
+    background-image: linear-gradient(180deg, #010326, #07038C);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px white;
+}
