@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links Personalizados</title>
+    <style>
+        body{
+            background-color: black;
+            color: white
+        }
+        a{
+            color: lightblue;
+        }
+        a:visited{
+            color: darkgreen;
+        }
+        a:hover{
+            font-size: 2em;
+            text-decoration: underline;
+        }
+        a::after{
+            content: ' [Link]';
+            text-decoration: none;
+            font-weight: normal;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Personalizando Links</h1>
+    <ul>
+        <li><a href="https://github.com/OtavioMendesSantos/Projeto_Autodidata">Repositório GitHub</a></li>
+        <li><a href="https://youtube.com/@darkkk2513?si=i_0YSNzf3GRm173Y">Canal do Youtube</a></li>
+        <li><a href="https://www.cursoemvideo.com">Site do Curso em vídeo</a></li>
+    </ul>
+</body>
+</html>

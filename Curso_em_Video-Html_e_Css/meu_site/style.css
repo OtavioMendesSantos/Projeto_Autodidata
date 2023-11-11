@@ -57,9 +57,11 @@ nav{
     
 }
 
-a.link_menu{
+.link_menu{
     color: white;
 }
+/* Outra forma de fazer isto seria usando as element child e parent  
+nav > ul > li > p > a{color: white;}*/
 
 div.button{
     width: 200px;
@@ -80,7 +82,7 @@ div.button{
 Não sei se isso que estou fazendo é certo, provávelmente não, no futuro eu faço da forma correta
 
 */
-div.cores{
+.cores{
     width: 100px;
     height: 200px;
     border: black;
