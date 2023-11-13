@@ -8,6 +8,7 @@
 body{
     background-image: white;
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
 }
 
 main{
@@ -17,6 +18,8 @@ main{
     padding: 10px;
     width: 900px;
     margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 h1{
@@ -45,7 +48,7 @@ caption{
     color: white;
 }
 
-nav{
+nav#menu{
     background-color: #07038C;
     border-style: solid;
     border-radius: 15px;
@@ -90,6 +93,7 @@ Não sei se isso que estou fazendo é certo, provávelmente não, no futuro eu f
     text-align: center;
     display: inline-block;
     padding: 10px;
+    margin: 0px;
 }
 /* Para mostrar um id específico no css, devo usar o "#" */
 #oxford_blue{background-color: #010326;}
@@ -98,10 +102,43 @@ Não sei se isso que estou fazendo é certo, provávelmente não, no futuro eu f
 #navy_blue{background-color: #020873;}
 #ultramarine{background-color: #07038C;}
 
-#cabeçalho{
+header{
     background-image: linear-gradient(180deg, #010326, #07038C);
     padding: 20px;
     text-align: center;
     color: white;
     text-shadow: 1px 1px 2px white;
+    margin: 0px 0px 10px 0px;
+}
+/* Começando a formatar meu header */
+nav#menu_cabecalho{
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+}
+nav#menu_cabecalho > a{
+    color: black;
+    text-decoration: none;  
+    font-size: 1.5em;
+    margin: 0px 5px;
+}
+nav#menu_cabecalho > a:hover{
+    color: #07038C;
+    text-decoration: underline;
+}
+nav#menu_cabecalho > a::before{
+    content: '• ';
+}
+nav#menu_cabecalho > p{ /* Temporário */
+    text-align: center;
+}
+
+/* Começando a formatar meu footer*/
+footer{
+    background-image: linear-gradient(180deg, #07038C, #010326); 
+    padding: 20px;
+    color: white;
+    text-align: center;
 }
