@@ -93,7 +93,7 @@ Não sei se isso que estou fazendo é certo, provávelmente não, no futuro eu f
     text-align: center;
     display: inline-block;
     padding: 10px;
-    margin: 0px;
+    margin: -5px;
 }
 /* Para mostrar um id específico no css, devo usar o "#" */
 #oxford_blue{background-color: #010326;}
@@ -141,4 +141,12 @@ footer{
     padding: 20px;
     color: white;
     text-align: center;
+}
+
+section{
+    border: 1px solid black;
+    min-width: 350px;
+    max-width: max-content;
+    padding: 10px;
+    margin: auto;
 }

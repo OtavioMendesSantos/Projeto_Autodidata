@@ -1,0 +1,229 @@
+@font-face{
+    font-family: 'idroid';
+    src: url(fontes/idroid.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Isto é uma variável css, parece interessante, vou estudar sobre */
+:root{
+    --cor00: #ebe5ce;
+    --cor01: #83e1ad;
+    --cor02: #3ddc84;
+    --cor03: #2fa866;
+    --cor04: #1a5c37;
+    --cor05: #063d1e;
+
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Consolas', 'cursive';
+    --fonte-android: 'idroid', 'cursive';
+}
+
+/* Configurando Body e Elementos */
+body{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--cor00);
+}
+
+
+a::after{
+    content: '🔗';
+}
+
+strong{
+    color: var(--cor04);
+    font-weight: bold;
+}
+
+/* com um asterisco, podemos definir configurações globais, para todos os elementos, dessa forma : 
+* {padding: 0px;} */
+
+/* Configurando Header */
+header{
+    background-image: linear-gradient(360deg, #1A5C38, #37C878);
+    min-width: 320px;
+    padding: 10px;
+    margin: 0px;
+    color: white;
+    box-shadow: 7px 0px 7px rgba(0, 0, 0, 0.26);
+    text-align: center;
+}
+
+header > h1{
+    font-family: var(--fonte-destaque);
+    font-size: 3em;
+    text-shadow: 0px 0px 2px black;
+}
+
+header > p{
+    font-size: 1.2em;
+    max-width: 500px;   
+    margin: auto; 
+    padding: 0x, 10px;
+    text-shadow: 0px 0px 2px black;
+}
+
+/* Configurando menu */
+menu a{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+menu > a::after{
+    content:' ';
+    text-decoration: none;
+}
+
+menu > a:hover{
+    background-image: linear-gradient(140deg, #45bf6a, #3d9357,#2e7845);
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Configurando Main - era pra ser um nav */
+main{
+    min-width: 320px;
+    max-width: 800px;
+    padding: 10px;
+    margin: auto;
+    border: 0px solid transparent;
+    border-radius: 0px 0px 5px 5px;
+    background-color: white;
+    margin-top: 0px;
+    /* box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.26), -2px 2px 1px rgba(0, 0, 0, 0.26);  ao invéz disso, basta usar: */ 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+main > h1{
+    font-family: var(--fonte-android);
+    color: var(--cor05);
+    text-shadow: 1px 1px 1px #37C878;
+    padding: 5px;
+    margin-top: 0px;
+    text-align: left;
+}
+
+main > h2{
+    font-family: var(--fonte-android);
+    color: var(--cor05);
+    background-image: linear-gradient(90deg, #37eb88, transparent);
+    padding: 5px;
+    text-align: left;
+    margin: 0px -10px; /* Eu posso usar valores negativos para diminuir a margem, que dahora */
+}
+
+main p{ 
+    font-family: Arial, Helvetica, sans-serif;
+    text-indent: 30px;
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.1em;
+}
+
+main a{
+    text-decoration: none;
+    background-color: var(--cor01);
+    font-weight: bold;
+    color: var(--cor05);
+    padding: 2px 6px;
+}
+
+main a:hover{
+    text-decoration: underline;
+    color: var(--cor04);
+}
+
+/* Configurando imagens responsivas */
+img{
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+
+img.pequeno{
+    max-width: 350px;
+}
+
+/* Configurando video/iframe  */
+section{
+    background-color: #1A5C38;
+    padding: 10px;
+    margin: 0px, -20px;
+}
+
+iframe{
+    width: 100%;
+}
+
+/* Outra forma de fazer esse redimensionamento do iframe/vídeo é 
+section{
+    background-color: #1A5C38;
+    margin: 0px, -20px 30px -20px;
+    padding-bottom: 56,5%;
+    position: relative;
+}
+
+section iframe{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 5%;
+    height: 90%;
+}
+
+
+*/
+
+/* Configurando o article - era para ser um aside */
+article{
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: #a5dbbc;
+    margin: 20px;
+}
+
+article > h3{
+    margin: 0px;
+    padding: 10px;
+    background-color: #37C878;
+    border-radius: 10px 10px 0px 0px;
+    color: white;
+}
+article > p > a{
+    text-decoration: none;
+}
+article > p > a:hover{
+    text-decoration: underline;
+}
+
+/* Configurando lista article */
+article > ul{
+    list-style-type:none; /* ou \2714 */
+    columns: 2;
+}
+article abbr{ /* <-posso usar isso para me referênciar à uma abbr que esteja dentro de article e não necessariamente seja filho direto de article ao invés de 'article > ul >li> abbr' */
+    text-decoration: none;
+}
+    /* Não é todo navegador que suporta isso */
+article li::before{ /* ao invés de usar esse pseudo elemento, poderia ter colocado = list-style-type: '\2714'; */
+    content: '✔ '; /* ou \2714 */
+    font-weight: bold;
+}
+article abbr:hover{
+    font-style: italic;
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* Configurando Footer/Rodapé */
+footer{
+    background-color:  var(--cor05);
+    color: white;
+    margin: 10px 0px 0px 0px;
+    padding: 10px;
+    text-align: center;
+    min-width: 320px;
+}
