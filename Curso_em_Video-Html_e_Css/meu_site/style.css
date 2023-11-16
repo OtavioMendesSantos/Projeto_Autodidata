@@ -1,27 +1,22 @@
-/* Color Theme Swatches in Hex */
-.Virtual-Girl-1-hex { color: #07038C; }
-.Virtual-Girl-2-hex { color: #020873; }
-.Virtual-Girl-3-hex { color: #020659; }
-.Virtual-Girl-4-hex { color: #010440; }
-.Virtual-Girl-5-hex { color: #010326; }
+:root{
+    --cor00: darkred;
+    --cor01: #07038C;
+    --cor02: #020873;
+    --cor03: #020659;
+    --cor04: #010440;
+    --cor05: #010326;
 
+}
+
+
+/* Configurando o body */
 body{
     background-image: white;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0px;
 }
 
-main{
-    background-color: white;
-    border: 3px solid black;
-    border-radius: 10px;
-    padding: 10px;
-    width: 900px;
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
+/* Configurando Elementos */
 h1{
     text-align: center;
     
@@ -31,6 +26,82 @@ p{
     text-align: justify;
 }
 
+/* Configurando Header */
+header{
+    background-image: linear-gradient(180deg, #010326, #07038C);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px white;
+    margin: 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Configurando Header > Nav */
+nav#menu_cabecalho{
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+}
+nav#menu_cabecalho > a{
+    color: black;
+    text-decoration: none;  
+    font-size: 1.5em;
+    margin: 0px 5px;
+    display: inline-block;
+}
+nav#menu_cabecalho > a:hover{
+    color: #07038C;
+    text-decoration: underline;
+}
+nav#menu_cabecalho > a::before{
+    content: '• ';
+}
+nav#menu_cabecalho > p{ /* Temporário */
+    text-align: center;
+}
+
+/* Configurando Conteúdo Principal */
+main{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 0px 0px 10px 10px;
+    padding: 10px;
+    max-width: 1000px;
+    min-height: 642px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.link_menu{
+    color: white;
+}
+/* Outra forma de fazer isto seria usando as element child e parent  
+nav > ul > li > p > a{color: white;}*/
+
+/* Configurando o Footer/Rodapé */
+footer{
+    background-image: linear-gradient(180deg, #07038C, #010326); 
+    padding: 20px;
+    color: white;
+    text-align: center;
+} 
+
+footer > p{
+    text-align: center;
+}
+
+footer > p > a{
+    color: white;
+}
+
+footer
+
+/* Configurando Table */
 table{
     border: 1px solid black;
 }
@@ -48,34 +119,15 @@ caption{
     color: white;
 }
 
-nav#menu{
-    background-color: #07038C;
-    border-style: solid;
-    border-radius: 15px;
-    text-indent: 10pt;
-    padding: 10px;
-    width: 800px;
-    color: white;
-    margin: auto;
-    
-}
-
-.link_menu{
-    color: white;
-}
-/* Outra forma de fazer isto seria usando as element child e parent  
-nav > ul > li > p > a{color: white;}*/
-
-div.button{
+button#corfundo{
     width: 200px;
-    height: 100px;
+    height: 150px;
     font-size: 20pt;
     text-align: center;
     padding: 10px;
-    margin: 10px;
     border-style: solid;
     border-color: black;
-    border-radius: 5%;
+    border-radius: 5px;
     background-image: linear-gradient(to top, darkred, red);
     color: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -83,8 +135,8 @@ div.button{
 
 /*
 Não sei se isso que estou fazendo é certo, provávelmente não, no futuro eu faço da forma correta
-
 */
+
 .cores{
     width: 100px;
     height: 200px;
@@ -96,52 +148,11 @@ Não sei se isso que estou fazendo é certo, provávelmente não, no futuro eu f
     margin: -5px;
 }
 /* Para mostrar um id específico no css, devo usar o "#" */
-#oxford_blue{background-color: #010326;}
-#penn_blue{background-color: #010440;}
-#federal_blue{ background-color: #020659;}
-#navy_blue{background-color: #020873;}
-#ultramarine{background-color: #07038C;}
-
-header{
-    background-image: linear-gradient(180deg, #010326, #07038C);
-    padding: 20px;
-    text-align: center;
-    color: white;
-    text-shadow: 1px 1px 2px white;
-    margin: 0px 0px 10px 0px;
-}
-/* Começando a formatar meu header */
-nav#menu_cabecalho{
-    background-color: white;
-    color: black;
-    text-align: center;
-    border-radius: 5px;
-    padding: 5px;
-}
-nav#menu_cabecalho > a{
-    color: black;
-    text-decoration: none;  
-    font-size: 1.5em;
-    margin: 0px 5px;
-}
-nav#menu_cabecalho > a:hover{
-    color: #07038C;
-    text-decoration: underline;
-}
-nav#menu_cabecalho > a::before{
-    content: '• ';
-}
-nav#menu_cabecalho > p{ /* Temporário */
-    text-align: center;
-}
-
-/* Começando a formatar meu footer*/
-footer{
-    background-image: linear-gradient(180deg, #07038C, #010326); 
-    padding: 20px;
-    color: white;
-    text-align: center;
-}
+#oxford_blue{background-color: var(--cor05);}
+#penn_blue{background-color: var(--cor04);}
+#federal_blue{ background-color: var(--cor03);}
+#navy_blue{background-color: var(--cor02);}
+#ultramarine{background-color: var(--cor01);}
 
 section{
     border: 1px solid black;

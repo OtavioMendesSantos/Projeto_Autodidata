@@ -8,22 +8,38 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <p>Para voltar a página inicial, basta <a href="../meu_site.html" rel="prev">clicar aqui</a></p>
-    <h1>Funcionalidades JavaScript</h1>
-    <div class="button" id="corfundo" onclick="corfundo()">
-        Aperte aqui para mudar a cor de fundo do site
-        <!-- Como posso colocar um parágrafo aqui sem comprometer o estilo do texto? -->
-    </div>
+    <header>
+        <h1>Meu site &#x1F47B</h1>
+        <nav id="menu_cabecalho">
+            <p>Menu</p>
+            <a href="../meu_site.html" rel="prev">Página Inicial</a>
+            <a href="meus_mangas.html" rel="next"  class="link_menu">Meus mangás</a>
+            <a href="quemsoueu.html" rel="next" class="link_menu">Quem sou</a>
+            <a href="formacao.html" rel="next" class="link_menu">Minha Formação</a>
+            <a href="baguncas.html"  rel="next" class="link_menu">Bagunças</a>
+            <a href="tagshtml.html" rel="next" class="link_menu">Tags Html</a>
+            <a href="javascript.html"  rel="next" class="link_menu">JavaScript</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Funcionalidades JavaScript</h1>
+        <p><strong>16/11/2023</strong> - Agora que tenho uma "basezinha"de HTML e CSS, vou Estudar Java Script a fundo. Essa págna vai ser a "cobaia", vou ir acrescentando tudo que eu for aprendendo aqui. Então... Deus tenha piedade de ti minha pequena página... Sabe-se o que virá por aí...</p>
 
-    <script>
+        <h2>DOM - Document Object Model</h2>
+        <button id="corfundo" onclick="corfundo()">Aperte aqui para mudar a cor de fundo do site</button>
+        <script>
         
-        function corfundo(){
-        var corfundo = document.querySelector('#corfundo')
-        corfundo.innerHTML = ('clicou')
-        window.document.body.style.backgroundColor = 'gray'
-        }
+            function corfundo(){
+            var corfundo = document.querySelector('#corfundo')
+            corfundo.innerHTML = ('clicou')
+            window.document.body.style.backgroundColor = 'gray'
+            }
         
         
-    </script>
+        </script>
+    </main>
+    <footer>
+        <p>Desenvolvido por <a href="quemsoueu.html">Otávio Mendes Santos</a></p>
+    </footer>
 </body>
 </html>
