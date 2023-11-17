@@ -25,18 +25,50 @@
         <h1>Funcionalidades JavaScript</h1>
         <p><strong>16/11/2023</strong> - Agora que tenho uma "basezinha"de HTML e CSS, vou Estudar Java Script a fundo. Essa págna vai ser a "cobaia", vou ir acrescentando tudo que eu for aprendendo aqui. Então... Deus tenha piedade de ti minha pequena página... Sabe-se o que virá por aí...</p>
 
-        <h2>DOM - Document Object Model</h2>
-        <button id="corfundo" onclick="corfundo()">Aperte aqui para mudar a cor de fundo do site</button>
-        <script>
-        
-            function corfundo(){
-            var corfundo = document.querySelector('#corfundo')
-            corfundo.innerHTML = ('clicou')
-            window.document.body.style.backgroundColor = 'gray'
-            }
-        
-        
-        </script>
+        <h2 class="TituloH2">DOM - Document Object Model</h2>
+        <h3>Mouse Events</h3>
+            <button id="corfundo" onmouseenter="mudarcorfundo()" onmouseout="normalcorfundo()">Passe o mouse aqui para mudar a cor de fundo do site</button>
+                <script>
+                    /*
+                    var corfundo = document.querySelector('#corfundo')
+                    corfundo.addEventListener('onmouseenter',mudarcorfundo)
+                    corfundo.addEventListener('onmouseout',normalcorfundo)
+                    */
+                    function mudarcorfundo(){
+                        var corfundo = document.querySelector('#corfundo')
+                        corfundo.innerHTML = ('Mudou')
+                        window.document.body.style.backgroundColor = 'gray'
+                    }
+                    function normalcorfundo(){
+                        var corfundo = document.querySelector('#corfundo')
+                        corfundo.innerHTML = ('Passe o mouse aqui para mudar a cor de fundo do site')
+                        window.document.body.style.backgroundColor = 'white'
+                    }
+                </script>
+                <p>Poderia adicionar um event listener, mas não sei fazer isso direito</p>
+            <h3>Soma</h3>
+                <p>
+                    <input type="number" class="soma" id="n1">
+                    +
+                    <input type="number" class="soma" id="n2">
+                    =
+                    <span id="res"></span>
+                </p>
+                <p>
+                    <input type="button" value="somar" onclick="somar()">
+                    <script>
+                        function somar(){
+                            var stringN1 = document.getElementById('n1')
+                            var stringN2 = document.getElementById('n2')
+                            var soma = document.getElementById('res')
+                            var n1 = Number(stringN1.value)
+                            var n2 = Number(stringN2.value)
+                            var resultado = n1 + n2
+                            soma.innerHTML = resultado
+                        }
+                    </script>
+                </p>
+                
     </main>
     <footer>
         <p>Desenvolvido por <a href="quemsoueu.html">Otávio Mendes Santos</a></p>

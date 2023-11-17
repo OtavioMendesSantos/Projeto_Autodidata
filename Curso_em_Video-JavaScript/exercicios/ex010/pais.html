@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Você é estrangeiro ?</h1>
+    <p>Escreve certinho aí se não dá errado kkkkkkkk</p>
+    <p>Você nasceu em qual país? <input type="text" id="país"> <input type="button" value="Enviar" onclick="enviar()"></p>
+    <p id="res"></p>
+    <script>
+        function enviar(){
+            var país = document.getElementById('país');
+            var res = document.getElementById('res');
+            var x = String(país.value)
+            if(x == "Brasil"){
+                res.innerHTML = 'Você é Brasileiro';
+            } else {
+                res.innerHTML = 'Você é estrangeiro';
+            }
+        } 
+    </script>
+</body>
+</html>
