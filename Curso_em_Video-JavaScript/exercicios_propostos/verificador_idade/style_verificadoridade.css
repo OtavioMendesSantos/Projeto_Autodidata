@@ -14,7 +14,7 @@ header{
 header h1{
     margin: 0px;
 }
-main{
+section{
     min-width: 380px;
     max-width: 500px;
     margin: auto;
@@ -25,11 +25,28 @@ main{
     font-weight: bold;
     box-shadow: 0px 0px 4px black;
 }
-a{
-    text-decoration: none;
+
+img{
+    border-radius: 50%;
+    width: 100%;
+    margin: 10px;
 }
 
-a:hover{
-    text-decoration: underline;
+#res{
+    text-align: center;
+    padding: 10px;
 }
-/* footer{} */
+
+footer{
+    background-color: white;
+    width: max-content;
+    margin: auto;
+    padding: 5px;
+    margin-top: 10px; 
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px black;
+}
+
+footer p{
+    margin: 0px;
+}
