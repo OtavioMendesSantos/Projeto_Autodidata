@@ -1,0 +1,30 @@
+:root{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+body{
+    background-color: rgb(252, 221, 21);
+}
+
+header{}
+
+section{
+    min-width: 380px;
+    max-width: 500px;
+    margin: auto;
+    background-color: rgb(255, 255, 150);
+    padding: 10px;
+    border-radius: 10px;
+    border: 10px solid white;
+    font-weight: bold;
+    box-shadow: 0px 0px 4px black;
+}
+
+img#imagem_horas {
+    border-radius: 50%;
+    border: 10px solid white;
+}
+
+footer{}
