@@ -169,8 +169,64 @@ UPDATE tbl_livro SET Preco_Livro = 80.00, ISBN = '02020202' WHERE ID_Livro = 101
 	SELECT * FROM tbl_livro;
 	UPDATE tbl_livro SET preco_livro = -10 where ID_Livro = 105; --como o valor é menor que 10, não me é permitido prosseguir com esse comando
 
---Backup do Banco de Dados
-	BACKUP DATABASE Boson_Treinamentos
-	TO DISK = 'C:\Documents'; --FAZ UM BACKUP DO BANCO DE DADOS NO LOCAL ESPECIFICADO
-	--WITH FORMAT -- USADO PARA FORMATAR O LOCAL--
-	GO
+--Concatenação de strings
+	Select * FROM tbl_livro;
+	Select ID_Livro, Nome_Livro, Nome_Autor + ' ' + Sobrenome_Autor AS 'Nome Completo' FROM tbl_Autores AS a
+	JOIN tbl_livro AS l
+	ON l.Id_Autor = a.Id_Autor;
+
+--Colações e Agrupamentos 
+	--Verificando
+		SELECT * FROM fn_helpcollations(); --Mostra as õpções de colação/agrupamento de caracteres disponível para o banco de dados através de uma função
+		SELECT SERVERPROPERTY('Collation') AS colação_usada --Mostra o esquema de colação usado atualmente pelo servidor.
+		SELECT DATABASEPROPERTYEX('Boson_Treinamentos', 'collation') AS colação_atual; --Verifica o esquema de agrupamento de um banco de dados.
+0
+	--Alterando 
+		/*ALTER DATABASE Boson_Treinamentos 
+		COLLATE Greek_CI_AI*/--Altera o esquema de colação de um banco de dados.
+		SELECT * FROM tbl_livro ORDER BY Nome_Livro
+		COLLATE Icelandic_CI_AI;--Seleciona alterando o agrupamento de uma coluna específica.
+
+--VIEWS / Visualizações
+	--Criando uma exibição
+	CREATE VIEW vw_Livros_Autores
+	AS SELECT l.Nome_Livro AS Livro, a.Nome_Autor + a.Sobrenome_Autor AS Autor FROM tbl_livro AS l
+	INNER JOIN tbl_autores AS a
+	ON a.Id_Autor = l.Id_Autor;
+	
+	--Selecionando uma exibição
+	SELECT * FROM vw_Livros_Autores 
+	WHERE Livro LIKE 'S%'; --where opcional
+
+	--Alterando uma exibição
+	ALTER VIEW vw_Livros_Autores
+	AS SELECT l.Nome_Livro AS Livro, a.Nome_Autor + a.Sobrenome_Autor AS Autor, l.Preco_Livro AS Valor FROM tbl_livro AS l
+	INNER JOIN tbl_autores AS a
+	ON a.Id_Autor = l.Id_Autor;
+
+	--Excluindo uma exibição
+	DROP VIEW vw_Livros_Autores;
+
+--Subqueries - Sub Consultas
+	SELECT * FROM tbl_livro WHERE preco_livro < (SELECT AVG(Preco_Livro) FROM tbl_livro); 
+
+--Variáveis
+	--Declaração de Variáveis
+	DECLARE @valor INT,
+			@texto VARCHAR(40),
+			@data_nasc DATE,
+			@nada MONEY
+
+	--Definição dos valores para variáveis
+	SET	@valor = 50
+	SET @texto = 'Bóson'
+	SET	@data_nasc = GETDATE()
+
+	--Trabalhando com variáveis
+	SELECT @valor AS Valor, @texto AS Texto, @data_nasc AS 'Data de Nascimento', @nada AS Salário;
+	
+	--Definindo o valor de uma variável a partir de um SELECT
+	DECLARE @livro VARCHAR(30)
+	SELECT @livro = NOME_LIVRO FROM tbl_livro WHERE ID_Livro = 101
+	SELECT @livro AS 'Nome do Livro';
+

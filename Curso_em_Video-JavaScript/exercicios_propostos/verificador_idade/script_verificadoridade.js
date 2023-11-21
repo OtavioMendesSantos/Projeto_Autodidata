@@ -4,7 +4,7 @@ function verificar(){
     var ano_nacimento = document.querySelector("#ano_nacimento") 
     var res = document.getElementById('res')
 
-    if(ano_nacimento.value.length == 0 || Number(ano_nacimento.value) > ano_atual){
+    if(ano_nacimento.value == 0 || Number(ano_nacimento.value) > ano_atual){
         window.alert('Verifique os dados e tente novamente')
     } else {
         var img = document.createElement('img')
