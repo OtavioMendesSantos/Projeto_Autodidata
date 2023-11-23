@@ -195,12 +195,14 @@ UPDATE tbl_livro SET Preco_Livro = 80.00, ISBN = '02020202' WHERE ID_Livro = 101
 	ON a.Id_Autor = l.Id_Autor;
 	
 	--Selecionando uma exibição
-	SELECT * FROM vw_Livros_Autores 
+	SELECT * FROM vw_Livros_Autores
 	WHERE Livro LIKE 'S%'; --where opcional
+
+	SELECT Livro FROM vw_Livros_Autores 
 
 	--Alterando uma exibição
 	ALTER VIEW vw_Livros_Autores
-	AS SELECT l.Nome_Livro AS Livro, a.Nome_Autor + a.Sobrenome_Autor AS Autor, l.Preco_Livro AS Valor FROM tbl_livro AS l
+	AS SELECT l.Nome_Livro AS Livro, a.Nome_Autor + ' ' + a.Sobrenome_Autor AS Autor, l.Preco_Livro AS Valor FROM tbl_livro AS l
 	INNER JOIN tbl_autores AS a
 	ON a.Id_Autor = l.Id_Autor;
 
@@ -230,3 +232,130 @@ UPDATE tbl_livro SET Preco_Livro = 80.00, ISBN = '02020202' WHERE ID_Livro = 101
 	SELECT @livro = NOME_LIVRO FROM tbl_livro WHERE ID_Livro = 101
 	SELECT @livro AS 'Nome do Livro';
 
+--Conversão de tipo de dados
+	--utilizando CAST
+	SELECT 'O preço do livro ' + Nome_Livro + ' é de R$' + CAST(Preco_livro AS VARCHAR(6)) AS Item FROM tbl_livro
+	WHERE Id_Autor = 2;  -- O CAST() é necessário, pois para fazer a concatenação, os tipos necessitam de serem parecidos.
+
+	--utilizando CONVERT
+	SELECT 'O preço do livro ' + Nome_livro + ' é de R$' + CONVERT(VARCHAR(6), Preco_livro) FROM tbl_livro;
+
+	SELECT 'A data de publicação ' + CONVERT(VARCHAR(20), Data_Pub, 103) FROM tbl_livro
+
+--Estruturas de condição
+	DECLARE @numero INT,
+			@texto VARCHAR(10)
+
+	SET @numero = 20
+	SET @texto = 'Fábio'
+
+	IF @numero = 30
+		SELECT 'Número Correto!'
+	IF @texto = 'Fábio'
+		BEGIN
+			SET @numero = 30
+			SELECT @numero
+		END;
+	ELSE 
+		BEGIN
+			SET @numero = 40
+			SELECT 'Número incorreto'
+		END;
+	 --
+	 DECLARE @status VARCHAR(20),
+			 @livro VARCHAR(50),
+			 @valor MONEY, 
+			 @id SMALLINT
+
+	 SET @id = 102
+
+	 SELECT @livro = Nome_Livro, @valor = Preco_Livro FROM tbl_livro WHERE ID_Livro = @id
+	 
+	 IF @valor >= 50.00
+		SET @status = 'Caro'
+	 ELSE 
+		SET @status = 'Barato'
+	 
+	 SELECT 'O livro ' + @livro + ',é ' + @status + '. Pois custa R$' + CAST(@valor as VARCHAR) + '.'
+	
+--Estruturas de repetição
+	DECLARE @valor INT 
+	SET @valor = 0
+
+	WHILE @VALOR < 10
+		BEGIN 
+			PRINT 'Número ' + CAST(@Valor as varchar(2))
+			SET @Valor = @Valor + 1
+		END;
+	--
+	DECLARE @codigo INT
+	SET @codigo = 100
+
+	WHILE @codigo <= 106
+		BEGIN
+			SELECT id_livro AS Id, Nome_livro AS Livro, Preco_Livro AS Preço
+			FROM tbl_livro WHERE ID_Livro = @codigo
+			SET  @codigo =  @codigo + 1
+		END;
+
+--Stored Procedures - Procedimentos Armazenados 
+	GO
+	CREATE PROCEDURE teste
+	AS
+		SELECT 'Bóson Treinamentos' AS Nome;
+
+	EXEC teste;
+	--Criando, testando e executando STORED PROCEDURE
+		GO
+		CREATE PROCEDURE p_LivroValor
+		AS 
+		SELECT nome_livro, Preco_livro FROM tbl_livro;
+
+		EXEC p_LivroValor;
+
+		DROP PROCEDURE p_LivroValor;
+	
+		EXEC sp_helptext p_LivroValor;
+		--
+		GO
+		CREATE PROCEDURE p_LivroISBN
+		WITH ENCRYPTION --CRIA UMA PROCEDURE CRIPTOGRAFADA
+		AS 
+		SELECT Nome_Livro, ISBN 
+		FROM tbl_livro;
+
+		EXEC p_LivroISBN;
+
+		EXEC sp_helptext p_LivroISBN;
+
+		DROP PROCEDURE p_LivroISBN;
+		
+	--Alteração e Parâmetros de Entrada - Stored Procedures    
+		GO
+		ALTER PROCEDURE teste 
+		(@par1 AS INT, @par2 AS INT) -- Posso especificar quantos parâmetros quiser, basta separá-los com vírgula
+		AS 
+		SELECT @par1, @par2;
+
+		EXEC teste 22, 23 --22 é o parâmetro passado
+		--
+		GO
+		ALTER PROCEDURE p_LivroValor
+		(@ID SMALLINT)
+		AS
+		SELECT Nome_livro AS Livro, Preco_Livro AS Preço
+		FROM tbl_livro
+		WHERE ID_Livro = @ID;
+
+		EXEC p_LivroValor 104;
+		  --Como comentar todo um bloco de umva vez Ctrl + K + C, para descomentar Ctrl + K + U
+		--
+		GO
+		ALTER PROCEDURE teste (@par1 AS INT, @par2 AS VARCHAR (20))
+		AS 
+		BEGIN
+			SELECT @par1
+			SELECT @par2
+		END;
+
+		EXEC teste @par1 = 25, @par2 = 'Abacate'; --Há duas formas de passar os parâmentros: por identificação(como foi feito) ou pela posição dos parâmetros na procedure
