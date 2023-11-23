@@ -1,37 +1,50 @@
 function contar(){
-    var a = document.getElementById('inicio').value
-    var inicio = Number(a)   /* Ver se essa linha está correta */
+    let inicio = Number(document.getElementById('inicio').value)   /* Ver se essa linha está correta */
 
-    var b = document.getElementById('fim').value
-    var fim = Number(b)
+    let fim = Number(document.getElementById('fim').value)
 
-    var c = document.getElementById('passo').value
-    var passo = Number(c)
+    let passo = Number(document.getElementById('passo').value)
     
-    var resposta = document.getElementById('resposta')
+    let resposta = document.getElementById('resposta')
 
-    if(inicio <= fim && passo < 0 ){ /* 1..10 -> PASSO POSITIVO */
-        window.alert('Verifique os dados e tente novamente')
-    }else if(inicio >= fim && passo > 0 ){ /* 10..11 -> PASSO NEGATIVO */
-        window.alert('Verifique os dados e tente novamente')
-    }else if(passo == 0 || inicio < passo && passo > fim ){ /* PASSO NULO ou PASSO MAIOR QUE FIM E INICIO */
-        window.alert('Verifique os dados e tente novamente')
+    if(passo == 0 || inicio == 0 || fim == 0 || inicio < passo && passo > fim || passo < 0){ /* PASSO NULO ou PASSO MAIOR QUE FIM E INICIO */
+        window.alert('[ERRO] Verifique os dados e tente novamente')
+        resposta.innerHTML = ''
     }else{
-        var passo_dado = inicio
-        if(passo > 0){ /* PASSO POSITIVO */
-            do{ 
-                passo_dado = (passo_dado + passo)
-                var contagem = document.createElement('p')
-                contagem.textContent = passo_dado
-                resposta.appendChild(contagem)
-            }while(passo_dado < fim)
-        }else{ /* PASSO NEGATIVO */
-           do{
-                passo_dado = (passo_dado + passo)
-                var contagem = document.createElement('p')
-                contagem.textContent = passo_dado
-                resposta.appendChild(contagem)
-            }while(passo_dado > fim)
-        }
+        resposta.innerHTML = 'Contando... <br>'
+        if (fim == inicio){
+            resposta.innerHTML += 'FIM = INICIO'
+        }else if (inicio < fim){
+            for(let c = inicio; c <= fim; c += passo){
+                resposta.innerHTML += ` ${c} \u{1F449}` //Forma de colocar emojis
+            }
+        } else {
+            for(let c = inicio; c >= fim; c -= passo){
+                resposta.innerHTML += ` ${c} \u{1F449}` 
+            }
+        } 
+        resposta.innerHTML += `\u{1F3C1}`
     }
 }
+
+/* if(inicio > fim){ 
+while(passo_dado <= fim){ 
+    var contagem = document.createElement('span')
+    contagem.textContent = passo_dado + '💀'
+    resposta.appendChild(contagem)
+    passo_dado += passo
+}
+passo_dado += passo
+contagem.textContent = `${passo_dado} ❤`
+}else if(inicio < fim){ 
+ while(passo_dado >= fim){
+     var contagem = document.createElement('span')
+     contagem.textContent = passo_dado + '💀'
+     resposta.appendChild(contagem)
+     passo_dado -= passo
+}
+passo_dado += passo
+contagem.textContent = `${passo_dado} ❤`
+}else{
+resposta.innerHTML = 'Início = Fim'
+} */

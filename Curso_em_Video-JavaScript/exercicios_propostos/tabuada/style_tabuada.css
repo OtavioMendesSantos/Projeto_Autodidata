@@ -37,15 +37,12 @@ section{
     box-shadow: 0px 0px 4px black;
 }
 
-img{
-    border-radius: 50%;
-    width: 100%;
-    margin: 10px;
-}
-
-#res{
-    text-align: center;
+#tabela{
+    width: max-content;
+    height: max-content;
+    border: 1px solid black;
     padding: 10px;
+    margin: auto;
 }
 
 footer{
