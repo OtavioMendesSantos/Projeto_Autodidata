@@ -74,3 +74,14 @@ SELECT * FROM tbl_clientes AS Clientes;
 	FROM ConsultaCTE
 	GROUP BY Cliente ORDER BY ValorTotal;
 	
+DELETE FROM TBL_COMPRAS WHERE ID_COMPRA = 11;
+
+DELETE FROM TBL_COMPRAS WHERE ID_PRODUTO IN
+(SELECT ID_PRODUTO FROM tbl_produtos WHERE NOME_PRODUTO = 'PLACA DE VIDEO');
+	
+
+DELETE FROM Imovel 
+WHERE fk_Endereco_ID IN (
+     SELECT e.ID FROM Endereco AS e
+     INNER JOIN Bairro b ON e.fk_Bairro_ID = b.ID
+     WHERE b.fk_Cidade_ID = @cidadeID

@@ -359,3 +359,52 @@ UPDATE tbl_livro SET Preco_Livro = 80.00, ISBN = '02020202' WHERE ID_Livro = 101
 		END;
 
 		EXEC teste @par1 = 25, @par2 = 'Abacate'; --Há duas formas de passar os parâmentros: por identificação(como foi feito) ou pela posição dos parâmetros na procedure
+		--
+		GO
+		ALTER PROCEDURE p_LivroValor
+		(@id SMALLINT, @preco MONEY)
+		AS
+		SELECT Nome_Livro AS Livro, Preco_Livro AS Preço FROM tbl_livro
+		WHERE ID_Livro > @id AND Preco_Livro > @preco;
+
+		EXEC p_LivroValor @id = 102, @preco = 60;
+		--
+		GO
+		CREATE PROCEDURE p_LivroPrecoQuantidade(@id SMALLINT, @quantidade SMALLINT)
+		AS
+		SELECT ID_Livro AS Id, Nome_Livro AS Livro, Preco_livro AS 'Valor Unitário', @quantidade AS Quantidade, Preco_Livro * @quantidade AS 'Valor Total' 
+		FROM tbl_livro WHERE ID_Livro = @id;
+
+		EXEC p_LivroPrecoQuantidade @id = 102, @quantidade = 13;
+
+		EXEC sp_helptext p_LivroPrecoQuantidade;
+		--
+		GO
+		CREATE PROCEDURE p_InsereEditora(@nome VARCHAR(50))
+		AS 
+		INSERT INTO tbl_editoras(Nome_Editora) VALUES (@nome);
+		
+		EXEC p_InsereEditora @nome = 'Editora Danone';
+		EXEC p_InsereEditora @nome = 'PANetone';
+		EXEC p_InsereEditora @nome = 'ALFA book';
+		SELECT * FROM tbl_editoras;
+		TRUNCATE TABLE tbl_editoras;
+		--
+		GO
+		CREATE PROCEDURE p_teste_valor_padrao
+		(@param1 INT, @param2 VARCHAR(20) = 'Valor Padrão!')
+		AS
+		SELECT 'Valor do parâmetro 1: ' + CAST(@param1 AS VARCHAR)
+		SELECT 'Valor do parâmetro 2: ' + @param2;
+
+		EXEC sp_helptext p_teste_valor_padrao;
+ 		EXEC p_teste_valor_padrao @param1 = 4, @param2 = 'Valor Modificado';
+		
+	--PROCEDURE COM PARÂMETROS DE SAÍDA 
+		GO
+		ALTER PROCEDURE teste (@par1 AS INT OUTPUT)
+		AS 
+		SELECT @par1 * 2 
+		RETURN; 
+
+		/*exec sp_rename login_usuario, Login_Usuario ;*/
