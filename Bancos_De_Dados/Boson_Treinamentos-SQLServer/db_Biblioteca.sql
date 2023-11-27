@@ -405,6 +405,47 @@ UPDATE tbl_livro SET Preco_Livro = 80.00, ISBN = '02020202' WHERE ID_Livro = 101
 		ALTER PROCEDURE teste (@par1 AS INT OUTPUT)
 		AS 
 		SELECT @par1 * 2 
-		RETURN; 
+		RETURN; --Termina incondicionalmente o procedimento e retorna um valor inteiro ao chamador, pode ser usado para retornar estuatus de sucesso ou falha num procedimento
 
-		/*exec sp_rename login_usuario, Login_Usuario ;*/
+		DECLARE @valor AS INT = 15
+		EXEC teste @valor OUTPUT --Esse parâmetro é bidimensional, pois ele "joga" o valor e recebe outro valor de volta
+		PRINT @valor
+		--
+		GO
+		CREATE PROCEDURE p_ExemploParametrosSaida (
+			@parametroEntrada INT,
+			@parametroSaida INT OUTPUT)
+		AS
+		BEGIN
+			SET @parametroSaida = @parametroEntrada * 2 -- Atribui um valor ao parâmetro de saída
+			RETURN 0 -- Retorna um código de retorno
+		END
+
+		DECLARE @saida INT
+		EXEC p_ExemploParametrosSaida 10, @parametroSaida = @saida OUTPUT
+		SELECT @saida AS ParametroSaida
+		
+		--Uso do return
+		GO
+		ALTER PROCEDURE p_LivroValor(
+		@quantidade SMALLINT,
+		@cod SMALLINT = -10,
+		@id SMALLINT)
+		AS
+		SET NOCOUNT ON --DESABILITA AS CONTAGENS DE LINHA NAS MENSAGENS
+		IF @ID >= 100
+			BEGIN
+				SELECT Nome_Livro AS Livro, Preco_Livro * @quantidade AS Preço
+				FROM tbl_livro
+				WHERE ID_Livro = @id
+				RETURN 1
+			END
+		ELSE
+			RETURN @cod
+
+		DECLARE @codigo INT
+		EXEC @codigo = p_LivroValor @id = 102, @quantidade = 10
+		PRINT @codigo
+
+		
+	
