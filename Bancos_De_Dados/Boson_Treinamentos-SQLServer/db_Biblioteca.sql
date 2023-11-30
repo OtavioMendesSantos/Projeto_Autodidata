@@ -447,5 +447,40 @@ UPDATE tbl_livro SET Preco_Livro = 80.00, ISBN = '02020202' WHERE ID_Livro = 101
 		EXEC @codigo = p_LivroValor @id = 102, @quantidade = 10
 		PRINT @codigo
 
-		
-	
+--FUNÇÕES DE VALOR DE TABELA EMBUTIDA	
+	GO
+	CREATE FUNCTION retorna_itens(@valor REAL)
+	RETURNS TABLE
+	AS
+	RETURN (
+		SELECT L.Nome_Livro, A.Nome_Autor, E.Nome_Editora
+		FROM tbl_livro AS L 
+		INNER JOIN tbl_autores AS A
+		ON L.Id_Autor = A.Id_Autor
+		INNER JOIN tbl_editoras AS E 
+		ON L.Id_Editora = E.Id_Editora
+		WHERE L.Preco_Livro > @valor
+	);	
+	GO
+	SELECT Nome_Livro, Nome_Autor FROM retorna_itens (62.00);
+
+--FUNÇÃO DE VALOR DE TABELA COM VÁRIAS INSTRUÇÕES
+	GO
+	CREATE FUNCTION multi_tabela ()
+	RETURNS @valores table(
+		nome_livro VARCHAR(50),
+		Data_Pub DATETIME,
+		Nome_Editora VARCHAR(50),
+		Preco_Livro MONEY
+	)
+	AS 
+	BEGIN
+	INSERT
+		SELECT L.Nome_Livro, L.Data_Pub, E.Nome_Editora, L.Preco_Livro
+		FROM tbl_Livro AS L
+		INNER JOIN tbl_editora AS E 
+		ON L.Id_Editora = E.Id_Editora
+	RETURN
+	END
+
+	SELECT * FROM multi_tabela
