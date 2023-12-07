@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <style>
+        :root{
+            font-family: Arial, Helvetica, sans-serif
+        }
+        div#explicacao{
+            border: 2px solid black;
+            padding: 10px;
+            text-align: justify;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="explicacao">
+        <p>Faça um programa que leia o nome de uma pessoa e mostre uma mensagem de boas-vindas para ela: 
+            Ex: 
+            Qual é o seu nome? João da Silva 
+            Olá João da Silva, é um prazer te conhecer!</p>
+    </div>
+    <main>
+        <h1>Olá Usuário</h1>
+        <p>Olá, qual seu nome ?</p><input type="text" id="nomeUsuario"><input type="submit" onclick="enviar()">
+        <p id="resposta"></p>
+    </main>
+</body>
+</html>

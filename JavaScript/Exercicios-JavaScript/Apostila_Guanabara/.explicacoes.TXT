@@ -1,0 +1,3 @@
+Material proveniente do curso de Introdução a Lógica de programação do Curso em Vídeo. 
+
+Inicialmente foi feito para ser desenvolvido em portugol, mas para fins de prática, irei faze-los em JavaScript e Node.JS, não vou focar muito na estilização com css, quero focar mais na parte da lógica. Mas claro, uma corzinha aqui e ali não faz nenhum mal :)
