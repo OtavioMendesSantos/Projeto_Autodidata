@@ -1,0 +1,122 @@
+@import url(reset.css);
+
+@font-face {
+    font-family: Roboto;
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+}
+
+/* Configurando elementos e variáveis*/
+body{
+    --_cor01: #33A8DB;
+    --_fontePrincipal: 'Roboto', sans-serif;
+
+    background-color: black;
+    color: white;
+}
+
+/* Configurando Header */
+header.banner{
+    background-image: url(../images/banner.png), linear-gradient(180deg, rgb(0, 0, 0) 0%, #091A22 80%, rgb(0, 0, 0));
+    background-size: cover;
+}
+
+div.banner-content{
+    width: 510px;
+    height: 393px;
+    margin: auto;
+    text-align: center;
+}
+
+div.logo{ /* Colocar sombra no bloco */
+    margin: auto;
+    width: fit-content;
+}
+
+div.banner-content > h1 {
+    font-family: var(--_fontePrincipal);
+    font-size: 40px;
+    font-weight: 900;
+    color: rgba(20, 114, 183, 1);
+    text-transform: uppercase;
+}
+
+div.banner-content > p {
+    font-family: var(--_fontePrincipal);
+    font-size: 20px;
+    text-align: center;
+    margin: 10px
+   
+}
+
+div.banner-content > button{
+    font-family: var(--_fontePrincipal);
+    text-transform: uppercase;
+    font-weight: 900;
+    color: var(--_cor01);
+    background-color: transparent;
+    padding: 19px 91px 19px 91px;
+    border: 2px solid var(--_cor01);
+}
+
+/* Configurando Main */
+
+main{
+    margin: 50px 0 50px 0;
+    border-top: 1px solid var(--_cor01);
+    border-bottom: 1px solid var(--_cor01);
+}
+
+/* Configurando Section #course-content*/
+section#course-content{
+    text-align: center;
+    margin: 100px auto;
+    width: 792px;
+}
+
+section#course-content > h2{
+    color: var(--_cor01);
+    font-weight: 700;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: var(--_fontePrincipal);
+    margin: 10px 0;
+}
+
+section#course-content > p{
+    font-weight: 400;
+    font-size: 16px;
+    font-family: var(--_fontePrincipal);
+    margin: 30px 0;
+}
+
+section#course-content div.modules-list > div.module{
+    width: 535px;
+    height: 57px;
+    background-color: #252525;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--_cor01);
+    border-radius: 50px;
+    font-family: var(--_fontePrincipal);
+}
+
+section#course-content div.modules-list > div.module > span{
+    color: var(--_cor01);
+}
+
+/* Configurando Section #transform-world*/
+section#transform-world{
+    background-image: url(../images/woman-code.png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    height: 363px;
+    margin: auto;
+}
+/* Configurando Section #professional-challenges*/
+
+/* Configurando Footer*/
