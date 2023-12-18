@@ -1,6 +1,6 @@
 @import url(reset.css);
 
-@font-face {
+@font-face { 
     font-family: Roboto;
     src: url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 }
@@ -14,6 +14,16 @@ body{
     color: white;
 }
 
+h2{
+    color: var(--_cor01);
+    font-weight: 700;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: var(--_fontePrincipal);
+    margin: 10px 0;
+}
+
 /* Configurando Header */
 header.banner{
     background-image: url(../images/banner.png), linear-gradient(180deg, rgb(0, 0, 0) 0%, #091A22 80%, rgb(0, 0, 0));
@@ -22,14 +32,23 @@ header.banner{
 
 div.banner-content{
     width: 510px;
-    height: 393px;
+    height: fit-content;
     margin: auto;
     text-align: center;
+    padding: 100px;
 }
 
-div.logo{ /* Colocar sombra no bloco */
+div.logo{
     margin: auto;
+    border: 10px ;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
     width: fit-content;
+}
+
+div.logo > img{
+    width: 250px;
 }
 
 div.banner-content > h1 {
@@ -38,13 +57,14 @@ div.banner-content > h1 {
     font-weight: 900;
     color: rgba(20, 114, 183, 1);
     text-transform: uppercase;
+    margin-top: 20px;
 }
 
 div.banner-content > p {
     font-family: var(--_fontePrincipal);
     font-size: 20px;
     text-align: center;
-    margin: 10px
+    margin: 30px
    
 }
 
@@ -58,10 +78,14 @@ div.banner-content > button{
     border: 2px solid var(--_cor01);
 }
 
+div.banner-content > button:hover{
+    background-color: var(--_cor01);
+    color: white;
+}
+
 /* Configurando Main */
 
 main{
-    margin: 50px 0 50px 0;
     border-top: 1px solid var(--_cor01);
     border-bottom: 1px solid var(--_cor01);
 }
@@ -71,16 +95,6 @@ section#course-content{
     text-align: center;
     margin: 100px auto;
     width: 792px;
-}
-
-section#course-content > h2{
-    color: var(--_cor01);
-    font-weight: 700;
-    font-size: 32px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: var(--_fontePrincipal);
-    margin: 10px 0;
 }
 
 section#course-content > p{
@@ -116,7 +130,62 @@ section#transform-world{
     background-clip: border-box;
     height: 363px;
     margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    border-top: 1px solid var(--_cor01);
+    border-bottom: 1px solid var(--_cor01);
+}
+
+section#transform-world > p { /* Tenho uma noção, mas ainda não sei usar o display grid de forma correta. */
+    color: white;   
+    text-shadow: 2px 3px var(--_cor01);
+    font-size: 40px;
+    font-weight: 900;
+    width: 244px;
+    text-transform: lowercase;
+    font-family: var(--_fontePrincipal);
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    margin: 50px 50px 50px 0;
 }
 /* Configurando Section #professional-challenges*/
+section#professional-challenges{
+    margin: 100px ;
+    text-align: center;
+}
+
+section#professional-challenges > h2{
+    width: 746px;
+    margin: auto;
+}
+
+section#professional-challenges > p{
+    width: 792px;
+    margin: 30px auto;
+    text-align: center;
+    font-family: var(--_fontePrincipal);
+    font-size: 16px;
+    font-weight: 400;
+}
 
 /* Configurando Footer*/
+footer{
+    padding: 30px;
+    text-align: center;
+    font-family: var(--_fontePrincipal);
+    background-image: linear-gradient(180deg, rgba(51, 168, 219, 0) 0%, rgba(51, 168, 219, 0.2) 99.99%, rgba(51, 168, 219, 0.2) 100%);
+}
+
+footer p{ 
+    margin: 10px;
+}
+
+footer a{
+    color: var(--_cor01);
+    text-decoration: none;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
