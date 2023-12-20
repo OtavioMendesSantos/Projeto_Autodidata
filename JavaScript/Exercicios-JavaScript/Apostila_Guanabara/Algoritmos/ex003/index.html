@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <style>
+        :root{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        div#explicacao{
+            border: 2px solid black;
+            padding: 10px;
+            text-align: justify;
+            border-radius: 10px;
+        }
+        input{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="explicacao">
+        <p>Crie um programa que leia o nome e o salário de um funcionário, mostrando no 
+            final uma mensagem. <br>
+            Ex: <br>
+            Nome do Funcionário: Maria do Carmo 
+            Salário: 1850,45 
+            O funcionário Maria do Carmo tem um salário de R$1850,45 em Junho.</p>
+    </div>
+    <main>
+        <h1>Salário do Funcionário</h1>
+        <label for="salario">Informe o salário do Funcionário: </label><input type="number" name="salario" id="salario" min="0" placeholder="0000.00"><br>
+        <label for="funcionario">Informe o nome do Funcionário: </label><input type="text" name="funcionario" id="funcionario" placeholder="Nome"><br>
+
+        <button onclick="mostrarMensagem()">Enviar</button>
+        <p id="resposta"></p>
+    </main>
+</body>
+</html>
