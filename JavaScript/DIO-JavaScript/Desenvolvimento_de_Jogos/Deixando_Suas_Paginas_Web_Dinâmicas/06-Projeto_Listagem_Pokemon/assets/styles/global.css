@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+}
+
+body{
+    --fontePrincipal: 'Roboto', sans-serif;
+    font-family: var(--fontePrincipal);
+    box-sizing: border-box;
+    background-color: #f6f6f6;
+}
+
+.content{
+    height: auto;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+}
+
+@media screen and (min-width:382px) {
+    .content{
+        max-width: 768px;
+
+    }
+}
+
+@media screen and (min-width:768px) {
+    .content{
+        max-width: 992px;
+        margin:  1rem auto;
+    }
+}
+
+.content h1{
+    margin: 0rem;
+}
+
+/* Configurando a Lista de pokemons */
+.pokemons{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Diz que o template é uma tabela que tem 2 colunas, e cada coluna ocupa uma fração */
+}
+
+@media screen and (max-width:382px) {
+    .pokemons{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (min-width:576px) {
+    .pokemons{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .pokemons{
+       grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
