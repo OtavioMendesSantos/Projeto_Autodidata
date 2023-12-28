@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 007</title>
+    <style>
+        /* ----- Estilos do Site ----- */
+        :root{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .quadro{
+            background-color: rgb(236, 236, 236);
+            border: 2px solid black;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            text-align: justify;
+            border-radius: 10px;
+            margin: 10px auto;
+        }
+
+        .atividade{
+            min-width: 550px;
+            max-width: 800px;
+        }
+        
+        footer.quadro{
+            text-align: center;
+            width: fit-content;
+            height: fit-content;
+            margin: auto;
+        }
+
+        footer.quadro p, a{
+            margin: 0;
+            color: black;
+        }
+
+        /* ----- Estilos da Seção de Scripts ----- */
+        section#secaoScript{
+            background-color: rgb(190, 190, 190);
+            margin: 0;
+            padding: px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        section#secaoScript:hover{
+            background-color: rgb(170, 170, 170);
+        }
+        
+        section#secaoScript p {
+            background-color: rgb(160, 160, 160);
+            text-align: center;
+            margin: 0px;
+            margin: 0px;
+            border-radius: 10px;
+        }
+       
+        pre#preModificado{
+            display: none;
+            margin: 5px;
+            font-size: 1em;
+        }
+
+        /* ----- Estilos da Atividade ----- */
+
+        input{
+            margin: 0 5px;
+            width: 75px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="quadro atividade">
+        <h1>Algoritmo 007</h1>
+        <p>
+            Crie um algoritmo que leia um número real e mostre na tela o seu dobro e a sua terça parte. <br>
+            Ex: <br> 
+            Digite um número: 3.5 <br>
+            O dobro de 3.5 é 7.0 <br>
+            A terça parte de 3.5 é 1.16666<br>
+        </p>
+    </div>
+    <main class="quadro atividade">
+        <h1>Calculadora Pre-Definida</h1>
+        <label for="numeroEscolhido">Informe um número: </label><input type="number" id="numeroEscolhido" name="numeroEscolhido" value="0"><button onclick="calcular()">Enviar</button><br>
+        <p>O dobro de <span id="spanNumero1">x</span> é: <span id="dobro"></span></p>
+        <p>A terça parte de <span id="spanNumero2">x</span> é: <span id="tercaParte"></span></p>
+        <!--Abaixo temos o Script do site e da atividade, ambos estão localizados aqui para fins didático. Certeza que deve existir uma forma melhor de alcançar o mesmo resultado de uma forma mais organizada ou com menas linhas de código, mas é o que consegui fazer hoje :)-->
+        <section onclick="mostrarScript()" id="secaoScript">
+            <p>Toque para ver/esconder o script utilizado</p>
+            
+            <!-- Script Atividade  -->
+            <pre id="preModificado">
+                <script id="scriptSite">
+function calcular(){
+    const numeroEscolhido = Number(document.querySelector("#numeroEscolhido").value);
+    const spanNumero2 = document.querySelector("#spanNumero1").innerHTML = numeroEscolhido;
+    const spanNumero1 = document.querySelector("#spanNumero2").innerHTML = numeroEscolhido;
+    const dobro = document.querySelector("#dobro");
+    const tercaParte = document.querySelector("#tercaParte");
+
+    dobro.innerHTML = numeroEscolhido * 2;
+    tercaParte.innerHTML = numeroEscolhido / 3;
+    
+}
+                </script>
+            </pre>
+
+            <!-- Script Bloco Alternante -->
+            <script id="scriptBotao">
+                function mostrarScript(){
+                    const mostrarPre = document.querySelector("#preModificado");
+                    mostrarPre.style.display = (mostrarPre.style.display == 'none') ? 'block' : 'none';
+
+                    const mostrarScript = document.querySelector("#scriptSite");
+                    mostrarScript.style.display = (mostrarScript.style.display == 'none') ? 'block' : 'none';
+                }
+            </script>
+        </section>
+    </main>
+    <footer class="quadro">
+        <p>Desenvolvido por <a href="https://github.com/OtavioMendesSantos">@OtávioMendesSantos</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
