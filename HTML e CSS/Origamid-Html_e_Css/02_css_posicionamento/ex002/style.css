@@ -1,0 +1,76 @@
+.grid{
+    display: grid;
+    gap: 20px;
+    background-color: #f7f7f7;
+    border-radius: 4px;
+    padding: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: start;
+    grid-template-rows: repeat(3, auto) 1fr;
+    min-width: 680px;
+}
+
+.titulo{
+    grid-column: 1 / -1;    
+}
+
+.preco{
+    place-self: start start;
+}
+
+.foto{
+    grid-row: 2/5 ;
+}
+
+.comprar{
+    grid-column: 2;
+}
+
+    /* Será mais comum manipularmos colunas do que linhas. Podemos evitar a complexidade do posicionamento em linhas com a reestruturação do HTML. */
+
+/* Estilos Gerais */
+body{
+    font-family:  Helvetica, Arial, sans-serif;
+    margin: 40px;
+}
+
+h1, p{
+    margin: 0;
+}
+
+h1{
+    font-size: 48px;
+    line-height: 1;
+}
+
+p, span{
+    font-size: 20px;
+}
+
+img{
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.comprar{
+    background: #aa88ff;
+    padding: 10px 20px;
+    color: #110033;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.item{
+    background: #f7f7f7;
+    border: 1px solid #e7e7e7;
+    padding: 20px;
+    border-radius: 4px;
+    display: grid;
+}
+
+.preco{
+    background: #ddd;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
