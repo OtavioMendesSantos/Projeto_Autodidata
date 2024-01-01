@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Medidas</title>
+    <style>
+        /* ----- Estilos do Site ----- */
+        :root{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .quadro{
+            background-color: rgb(236, 236, 236);
+            border: 2px solid black;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            text-align: justify;
+            border-radius: 10px;
+            margin: 10px auto;
+        }
+
+        .atividade{
+            min-width: 550px;
+            max-width: 800px;
+        }
+        
+        footer.quadro{
+            text-align: center;
+            width: fit-content;
+            height: fit-content;
+            margin: auto;
+        }
+
+        footer.quadro p, a{
+            margin: 0;
+            color: black;
+        }
+
+        /* ----- Estilos da Seção de Scripts ----- */
+        section#secaoScript{
+            background-color: rgb(190, 190, 190);
+            margin: 0;
+            padding: px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        section#secaoScript:hover{
+            background-color: rgb(170, 170, 170);
+        }
+        
+        section#secaoScript p {
+            background-color: rgb(160, 160, 160);
+            text-align: center;
+            margin: 0px;
+            margin: 0px;
+            border-radius: 10px;
+        }
+       
+        pre#preModificado{
+            display: none;
+            margin: 5px;
+            font-size: 1em;
+        }
+
+        /* ----- Estilos da Atividade ----- */
+
+        input, label, select{
+            margin-bottom: 5px;
+        }
+
+        input#numero{
+            width: 75px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quadro atividade">
+        <h1>Algoritmo 008</h1>
+        <p>
+            Desenvolva um programa que leia uma distância em metros e mostre os valores relativos em outras medidas.<br> 
+            Ex:  <br>
+            Digite uma distância em metros: 185.72 <br>
+            A distância de 85.7m corresponde a: <br>
+            0.18572Km <br>
+            1.8572Hm <br>
+            18.572Dam <br>
+            1857.2dm <br>
+            18572.0cm <br>
+            185720.0mm <br>
+            
+        </p>
+    </div>
+    <main class="quadro atividade">
+        <h1>Conversor de unidades</h1>
+        <label for="medidaInformada">Informe a quantidade e a unidade de medida a ser utilizada:</label>
+        <input type="number" placeholder="0" id="numero">
+        <select name="medidaInformada" id="medidaInformada">
+            <option value="1">Milímetro</option>
+            <option value="2">Centímetro</option>
+            <option value="3">Decímetro</option>
+            <option value="4" selected>Metro</option>
+            <option value="5">Decâmetro</option>
+            <option value="6">Hectômetro</option>
+            <option value="7">Quilômetro</option>
+        </select><br>
+
+        <label for="unidadeMedida">Informe a unidade de medida a ser convertido:</label>
+        <select name="medidaRequerida" id="medidaRequerida">
+            <option value="1">Milímetro</option>
+            <option value="2">Centímetro</option>
+            <option value="3">Decímetro</option>
+            <option value="4" >Metro</option>
+            <option value="5">Decâmetro</option>
+            <option value="6">Hectômetro</option>
+            <option value="7" selected>Quilômetro</option>
+        </select>
+
+        <button onclick="calcular()">Calcular</button>
+        
+        <p id="resultado">Resultado:</p>
+        <!--Abaixo temos o Script do site e da atividade, ambos estão localizados aqui para fins didático. Certeza que deve existir uma forma melhor de alcançar o mesmo resultado de uma forma mais organizada ou com menos linhas de código, mas é o que consegui fazer hoje :)-->
+        <section onclick="mostrarScript()" id="secaoScript">
+            <p>Toque para ver/esconder o script utilizado</p>
+            
+            <!-- Script Atividade  -->
+            <pre id="preModificado">
+                <script id="scriptSite">
+function calcular(){
+    const medidaInformada = document.querySelector("#medidaInformada").value
+    const medidaRequerida = document.querySelector("#medidaRequerida").value
+    const numero = document.querySelector("#numero").value
+    let numeroConvertido;
+    
+    if(medidaInformada > medidaRequerida){
+        numeroConvertido = numero * (10 ** (medidaInformada - medidaRequerida)) 
+    } else if(medidaInformada < medidaRequerida) {
+        numeroConvertido = numero / (10 ** (medidaRequerida - medidaInformada))
+    } else {
+        numeroConvertido = numero * 1
+    }
+
+    const resultado = document.querySelector("#resultado").innerHTML = (`Resultado: ${numeroConvertido}`)
+}
+                </script>
+            </pre>
+
+            <!-- Script Bloco Alternante -->
+            <script id="scriptBotao">
+                function mostrarScript(){
+                    const mostrarPre = document.querySelector("#preModificado");
+                    mostrarPre.style.display = (mostrarPre.style.display == 'none') ? 'block' : 'none';
+
+                    const mostrarScript = document.querySelector("#scriptSite");
+                    mostrarScript.style.display = (mostrarScript.style.display == 'none') ? 'block' : 'none';
+                }
+            </script>
+        </section>
+    </main>
+    <footer class="quadro">
+        <p>Desenvolvido por <a href="https://github.com/OtavioMendesSantos">@OtávioMendesSantos</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
