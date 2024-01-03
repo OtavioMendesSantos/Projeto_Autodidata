@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aproveitamento Tinta</title>
+    <style>
+        /* ----- Estilos do Site ----- */
+        :root{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .quadro{
+            background-color: rgb(236, 236, 236);
+            border: 2px solid black;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            text-align: justify;
+            border-radius: 10px;
+            margin: 10px auto;
+        }
+
+        .atividade{
+            min-width: 550px;
+            max-width: 800px;
+        }
+        
+        footer.quadro{
+            text-align: center;
+            width: fit-content;
+            height: fit-content;
+            margin: auto;
+        }
+
+        footer.quadro p, a{
+            margin: 0;
+            color: black;
+        }
+
+        /* ----- Estilos da Seção de Scripts ----- */
+        section#secaoScript{
+            background-color: rgb(190, 190, 190);
+            margin: 0;
+            padding: px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        section#secaoScript:hover{
+            background-color: rgb(170, 170, 170);
+        }
+        
+        section#secaoScript p {
+            background-color: rgb(160, 160, 160);
+            text-align: center;
+            margin: 0px;
+            margin: 0px;
+            border-radius: 10px;
+        }
+       
+        pre#preModificado{
+            display: none;
+            margin: 5px;
+            font-size: 1em;
+        }
+
+        /* ----- Estilos da Atividade ----- */
+        input, button{
+            margin-bottom: 5px;
+        }
+
+        div#caixa{
+            width: fit-content;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="quadro atividade">
+        <h1>Algoritmo 010</h1>
+        <p>
+            Faça um algoritmo que leia a largura e altura de uma parede, calcule e mostre a área a ser pintada e a quantidade de tinta necessária para o serviço, sabendo que cada litro de tinta pinta uma área de 2metros quadrados.
+        </p>
+    </div>
+    <main class="quadro atividade">
+        <h1>Aproveitamento Tinta</h1>
+        <div id="caixa">
+            <label for="larguraParede">Largura:</label><input type="number" id="larguraParede" min="0"><br>
+            <label for="alturaParede">Altura:</label><input type="number" id="alturaParede" min="0"><br>
+            <button onclick="calcular()">Calcular</button>
+        </div>
+        <div id="resposta">
+
+        </div>
+        <!--Abaixo temos o Script do site e da atividade, ambos estão localizados aqui para fins didático. Certeza que deve existir uma forma melhor de alcançar o mesmo resultado de uma forma mais organizada ou com menas linhas de código, mas é o que consegui fazer hoje :)-->
+        <section onclick="mostrarScript()" id="secaoScript">
+            <p>Toque para ver/esconder o script utilizado</p>
+            
+            <!-- Script Atividade  -->
+            <pre id="preModificado">
+                <script id="scriptSite">
+function calcular(){
+    const larguraParede = document.querySelector('#larguraParede').value
+    const alturaParede = document.querySelector('#alturaParede').value
+    const resposta = document.querySelector('#resposta')
+    let area;
+    let aproveitamentoTinta;
+
+    if (larguraParede <= 0 || alturaParede <= 0) {
+        alert('Informe um valor válido.')
+    } else {
+        area = larguraParede * alturaParede
+        aproveitamentoTinta = area / 2
+        resposta.innerHTML = (`<p>A parede tem uma área de ${area} metros<sup>2</sup> , e precisa de ${aproveitamentoTinta}L de tinta para ser pintada.</p>`)
+    }
+}
+                </script>
+            </pre>
+            <!-- Script Bloco Alternante -->
+            <script id="scriptBotao">
+                function mostrarScript(){
+                    const mostrarPre = document.querySelector("#preModificado");
+                    mostrarPre.style.display = (mostrarPre.style.display == 'none') ? 'block' : 'none';
+
+                    const mostrarScript = document.querySelector("#scriptSite");
+                    mostrarScript.style.display = (mostrarScript.style.display == 'none') ? 'block' : 'none';
+                }
+            </script>
+        </section>
+    </main>
+    <footer class="quadro">
+        <p>Desenvolvido por <a href="https://github.com/OtavioMendesSantos">@OtávioMendesSantos</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
