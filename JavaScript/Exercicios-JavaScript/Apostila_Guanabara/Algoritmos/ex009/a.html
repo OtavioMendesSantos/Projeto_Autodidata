@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Cotação do Dólar</h2>
+
+<p id="cotacao"></p>
+
+<script>
+fetch('https://economia.awesomeapi.com.br/last/USD-BRL')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('cotacao').innerHTML = `USD para BRL: ${data.USDBRL.bid}`;
+    })
+    .catch(error => console.error(error));
+</script>
+
+</body>
+</html>

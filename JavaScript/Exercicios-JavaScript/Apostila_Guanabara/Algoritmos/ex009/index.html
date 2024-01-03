@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotação Dólar</title>
+    <style>
+        /* ----- Estilos do Site ----- */
+        :root{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .quadro{
+            background-color: rgb(236, 236, 236);
+            border: 2px solid black;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            text-align: justify;
+            border-radius: 10px;
+            margin: 10px auto;
+        }
+
+        .atividade{
+            min-width: 550px;
+            max-width: 800px;
+        }
+        
+        footer.quadro{
+            text-align: center;
+            width: fit-content;
+            height: fit-content;
+            margin: auto;
+        }
+
+        footer.quadro p, a{
+            margin: 0;
+            color: black;
+        }
+
+        /* ----- Estilos da Seção de Scripts ----- */
+        section#secaoScript{
+            background-color: rgb(190, 190, 190);
+            margin: 0;
+            padding: px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        section#secaoScript:hover{
+            background-color: rgb(170, 170, 170);
+        }
+        
+        section#secaoScript p {
+            background-color: rgb(160, 160, 160);
+            text-align: center;
+            margin: 0px;
+            margin: 0px;
+            border-radius: 10px;
+        }
+       
+        pre#preModificado{
+            display: none;
+            margin: 5px;
+            font-size: 1em;
+        }
+
+        /* ----- Estilos da Atividade ----- */
+
+
+    </style>
+</head>
+<body>
+    <div class="quadro atividade">
+        <h1>Algoritmo 009</h1>
+        <p>
+            Faça um algoritmo que leia quanto dinheiro uma pessoa tem na carteira (em R$) 
+            e mostre quantos dólares ela pode comprar. Considere US$1,00 = R$3,45.
+        </p>
+    </div>
+    <main class="quadro atividade">
+        <h1>Cotação Dólar</h1>
+        <p>Observação: Vou tentar fazer diferente, usando uma API para buscar o valor do dólar em tempo real (Não sei fazer isso direito).</p>
+        <h2>Quantos dólares tenho?</h2>
+        <label for="possuiDolares">Quantos reais você possui?</label><input type="number" id="possuiDolares" placeholder="R$00.00" min="0"><button onclick="converterRealDolar()">Calcular</button>
+        <p>Você possui <span id="dolares">$00.00</span> dólares.</p>
+
+        <!-- <h2>Quantos dólares posso comprar?</h2>
+        <label for="comprarDolares"></label><input type="number" name="" id="comprarDolares" placeholder="R$00.00" min="0"> -->
+   
+        <!--Abaixo temos o Script do site e da atividade, ambos estão localizados aqui para fins didático. Certeza que deve existir uma forma melhor de alcançar o mesmo resultado de uma forma mais organizada ou com menas linhas de código, mas é o que consegui fazer hoje :)-->
+        <section onclick="mostrarScript()" id="secaoScript">
+            <p>Toque para ver/esconder o script utilizado</p>
+            
+            <!-- Script Atividade  -->
+            <pre id="preModificado">
+                <script id="scriptSite">  
+let dolar;
+fetch('https://economia.awesomeapi.com.br/last/USD-BRL')
+    .then(response => response.json())
+    .then(data => {
+        dolar = document.getElementById('dolares').innerHTML = `${data.USDBRL.bid}`;
+    }   )
+    .catch(error => console.error(error));
+
+function converterRealDolar(){
+    const realDolar = Number(document.querySelector('#possuiDolares').value)
+    const dolares = document.querySelector('#dolares')
+
+    dolares.innerHTML = `${(realDolar * dolar).toFixed(2)}`
+}
+                </script>
+            </pre>
+
+            <!-- Script Bloco Alternante -->
+            <script id="scriptBotao">
+                function mostrarScript(){
+                    const mostrarPre = document.querySelector("#preModificado");
+                    mostrarPre.style.display = (mostrarPre.style.display == 'none') ? 'block' : 'none';
+
+                    const mostrarScript = document.querySelector("#scriptSite");
+                    mostrarScript.style.display = (mostrarScript.style.display == 'none') ? 'block' : 'none';
+                }
+            </script>
+        </section>
+    </main>
+    <footer class="quadro">
+        <p>Desenvolvido por <a href="https://github.com/OtavioMendesSantos">@OtávioMendesSantos</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
