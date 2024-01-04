@@ -19,3 +19,27 @@ print(type(y))
 print(type(z))
 
 # python é uma linguagem case sensitive (a != A)
+# Podemos definir vários valores em uma única linha
+a, b, c = "abacate", "banana", "cajamanga" 
+
+print(a)
+print(b)
+print(c)
+
+# Podemos definir o mesmo valor para várias variáveis ao mesmo tempo
+
+d = e = f = "tutti-fruti"
+
+print(d, e, f)
+
+# Quando criamos uma variável dentro de uma função, o escopo dela está limitado ao escopo da função. Para tornar esse escopo global, usamos a keyword global antes da variável.
+
+x = "awesome"
+
+def myfunc():
+  global x
+  x = "fantastic"
+
+myfunc()
+
+print("Python is " + x)
