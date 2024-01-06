@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valor de Delta</title>
+    <style>
+        /* ----- Estilos do Site ----- */
+        :root{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .quadro{
+            background-color: rgb(236, 236, 236);
+            border: 2px solid black;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            text-align: justify;
+            border-radius: 10px;
+            margin: 10px auto;
+        }
+
+        .atividade{
+            min-width: 550px;
+            max-width: 800px;
+        }
+        
+        footer.quadro{
+            text-align: center;
+            width: fit-content;
+            height: fit-content;
+            margin: auto;
+        }
+
+        footer.quadro p, a{
+            margin: 0;
+            color: black;
+        }
+
+        /* ----- Estilos da Seção de Scripts ----- */
+        section#secaoScript{
+            background-color: rgb(190, 190, 190);
+            margin: 0;
+            padding: px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        section#secaoScript:hover{
+            background-color: rgb(170, 170, 170);
+        }
+        
+        section#secaoScript p {
+            background-color: rgb(160, 160, 160);
+            text-align: center;
+            margin: 0px;
+            margin: 0px;
+            border-radius: 10px;
+        }
+       
+        pre#preModificado{
+            display: none;
+            margin: 5px;
+            font-size: 1em;
+        }
+
+        /* ----- Estilos da Atividade ----- */
+
+
+    </style>
+</head>
+<body>
+    <div class="quadro atividade">
+        <h1>Algoritmo 011</h1>
+        <p>
+            Desenvolva uma lógica que leia os valores de A, B e C de uma equação do segundo grau e mostre o valor de Delta.
+        </p>
+    </div>
+    <main class="quadro atividade">
+        <h1>Valor de Delta</h1>
+        <label for="a">Informe o valor de A: </label><input type="number" id="a"><br>
+        <label for="b">Informe o valor de B: </label><input type="number" id="b"><br>
+        <label for="c">Informe o valor de C: </label><input type="number" id="c"><br>
+        <button onclick="calcular()">Calcular &Delta; </button><br>
+        <p>Delta vale: <span id="res"></span></p>
+        <!--Abaixo temos o Script do site e da atividade, ambos estão localizados aqui para fins didático. Certeza que deve existir uma forma melhor de alcançar o mesmo resultado de uma forma mais organizada ou com menas linhas de código, mas é o que consegui fazer hoje :)-->
+        <section onclick="mostrarScript()" id="secaoScript">
+            <p>Toque para ver/esconder o script utilizado</p>
+            
+            <!-- Script Atividade  -->
+            <pre id="preModificado">
+                <script id="scriptSite">
+function calcular(){
+    const valorDeA = Number(document.querySelector('#a').value)
+    const valorDeB = Number(document.querySelector('#b').value)
+    const valorDeC = Number(document.querySelector('#c').value)
+
+    const valorDeDelta = (valorDeB ** 2 - 4 * valorDeA * valorDeC)
+
+    document.querySelector('#res').innerHTML = valorDeDelta
+}
+                </script>
+            </pre>
+
+            <!-- Script Bloco Alternante -->
+            <script id="scriptBotao">
+                function mostrarScript(){
+                    const mostrarPre = document.querySelector("#preModificado");
+                    mostrarPre.style.display = (mostrarPre.style.display == 'none') ? 'block' : 'none';
+
+                    const mostrarScript = document.querySelector("#scriptSite");
+                    mostrarScript.style.display = (mostrarScript.style.display == 'none') ? 'block' : 'none';
+                }
+            </script>
+        </section>
+    </main>
+    <footer class="quadro">
+        <p>Desenvolvido por <a href="https://github.com/OtavioMendesSantos">@OtávioMendesSantos</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
