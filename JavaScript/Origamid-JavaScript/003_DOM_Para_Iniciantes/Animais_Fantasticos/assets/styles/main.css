@@ -18,6 +18,11 @@ ul{
 }
 
 /* ---- Começando a Codificar ---- */
+
+html.textoMaior{
+    font-size: 150%;
+}
+
 body{
     --fonteImportada: 'IBM Plex Mono', monospace;
     --fonteTitulo: 'Playfair Display SC', serif;
