@@ -49,3 +49,28 @@
     align-items: center;
     justify-content: center;
 }
+
+.game-over{
+    width: 450px;
+    
+    margin: 30px auto;
+    background-color: #8d3012;
+    border: 5px solid #3f0813;
+    padding: 10px;
+    text-align: center;
+}
+
+.game-over p{
+    color: #ffffff;
+    margin: 10px 0 ;
+}
+
+.game-over button{
+    padding: 5px 10px;
+    background-color: #bf4b25;
+    border: 2px solid #3f0813;
+}
+
+.game-over button:hover{
+    background-color: #89381c;
+}

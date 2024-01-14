@@ -1,5 +1,7 @@
 const state = {
     view:{
+        container: document.querySelector('.container'),
+        panel: document.querySelector('.panel'),
         squares: document.querySelectorAll('.square'),
         enemy: document.querySelector('.enemy'),
         timeLeft: document.querySelector('#time-left'),
@@ -28,9 +30,9 @@ function countDown(){
     state.view.timeLeft.textContent = state.values.currentTime;
 
     if(state.values.currentTime <= 0){
-        clearInterval(state.actions.countDownTimerId)
-        clearInterval(state.actions.timerId)
-        alert("Game Over! O seu resultado foi: " + state.values.result)
+        clearInterval(state.actions.countDownTimerId) //PENDENTE: ver isso
+        clearInterval(state.actions.timerId) //PENDENTE: ver isso
+        gameOver()
     }
 }
 
@@ -51,6 +53,31 @@ function randomSquare(){
     state.values.hitPosition = randomSquare.id
 }
 
+function decreaseLife(){
+    if (state.values.lifeLeft > 0){
+        state.values.lifeLeft--;
+        state.view.life.textContent = "x" + state.values.lifeLeft;
+    } else {
+        gameOver()        
+    }
+}
+
+function gameOver(){
+    const newMenu = document.createElement('div');
+    newMenu.classList.add('game-over')
+    newMenu.innerHTML = '<h1>Game Over!</h1>'
+    newMenu.innerHTML += `<p>Sua pontuação final foi de: ${state.values.result}</p>`
+    newMenu.innerHTML += `<button onclick="location.reload()">Clique para jogar novamente </button>`
+    
+    state.view.panel.style.display = 'none'
+    state.view.container.appendChild(newMenu)
+    
+    clearInterval(state.actions.countDownTimerId) //PENDENTE: ver isso
+    clearInterval(state.actions.timerId) 
+    
+    state.view.timeLeft.textContent = "--"
+}
+
 function addListenerHitBox(){
     state.view.squares.forEach((square)=>{
         square.addEventListener('mousedown', ()=>{
@@ -61,9 +88,7 @@ function addListenerHitBox(){
                 playSound('hit')
             } else if(state.values.hitPosition === null){    
             } else {
-                state.values.lifeLeft--;
-                state.view.life.textContent = "x" + state.values.lifeLeft;
-                //transformar isso numa function gameOver
+                decreaseLife()
             }
         })
     })
