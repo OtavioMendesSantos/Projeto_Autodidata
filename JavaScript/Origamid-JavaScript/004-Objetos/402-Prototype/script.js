@@ -26,22 +26,38 @@ function Pessoa(nome, sobrenome, idade){
     }
 }
 
+
+Pessoa.prototype.nomeCompleto = function(){
+    return this.nome + ' ' + this.sobrenome
+}
+
+const otavio = new Pessoa('Otávio', 'Mendes Santos', 18)
+console.log(otavio.nomeCompleto())
+
 // Liste os métodos acessados por 
 // dados criados com NodeList,
 // HTMLCollection, Document
+console.log(NodeList)
+console.log(NodeList.prototype)
+console.log(HTMLCollection)
+console.log(HTMLCollection.prototype)
+console.log(Document)
+console.log(Document.prototype)
 
-/* 
 // Liste os construtores dos dados abaixo
 const li = document.querySelector('li');
+/* 
 
-li;
-li.click;
-li.innerText;
-li.value;
-li.hidden;
-li.offsetLeft;
-li.click();
+Se usa -> li.constructor.name
+
+li; 'HTMLLIElement'
+li.click; 'Function' 
+li.innerText; 'String'
+li.value; 'Number'
+li.hidden; 'Boolean'
+li.offsetLeft; 'Number'
+li.click(); 'undefined'
 
 // Qual o construtor do dado abaixo:
-li.hidden.constructor.name;
+li.hidden.constructor.name; 'String'
  */
