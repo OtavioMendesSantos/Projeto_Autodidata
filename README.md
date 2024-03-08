@@ -1,14 +1,15 @@
-# Projeto_Autodidata
- Nesse repositório vou ir guardando todo meu progresso nos estudos de programação e desenvolvimento.
- 
-# Cursos em Andamento:
- - Java - Curso em Vídeo
- - HTML e CSS - Curso em Vídeo
- - Bootcamp Desenvolvedor de Jogos - DIO
- - HTML e CSS, JavaScript, Design, UI e UX - Origamid
- - FullStack - Senai
+# 😎🤏 Projeto_Autodidata
+ Olá, seja bem vindo ao meu repositório, aqui eu tento fazer uma espécie de "caderno virtual", reunindo diversos tipos de conteúdos sobre projetos de cursos e atividades que faço por aí, ou simplesmente scripts aleatórios a fim de testar algo.
 
-# Regras de Formatação de nomes de Arquivos 
+ Caso seja do seu interesse dar uma olhada no meu portifólio, contendo minhas experiências, principais conhecimentos, cursos e bootcamps que tenho feito além dos projetos organizados, [clique aqui.](https://otaviomendessantos.github.io/Sites_Portifolio/index.html) 
+ 
+## 📚 Formações e Cursos em Andamento
+Principais formações que estou focado no momento:
+ - Análise e Desenvolvimento de Sistemas - Senac
+ - Bootcamp Python Data Analytics - DIO
+ - HTML e CSS, JavaScript, Design, UI e UX - Origamid
+
+## 📁 Regras de Formatação de Nomes de Arquivos 
  - Sem Caracteres Especiais
  - Alfabeto inglês (a a z e A a Z)
  - Números (0 a 9)
