@@ -17,3 +17,6 @@ Principais formações que estou focado no momento:
  - Hífen (-)
  - Sublinhado (_)
  - Barra (/)
+
+## 📑 Commits Semânticos
+ - A partir do dia 16/03 comecei a fazer os commits com base no documentação do [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) e neste [README](https://github.com/iuricode/padroes-de-commits)
