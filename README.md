@@ -20,3 +20,15 @@ Principais formações que estou focado no momento:
 
 ## 📑 Commits Semânticos
  - A partir do dia 16/03 comecei a fazer os commits com base no documentação do [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) e neste [README](https://github.com/iuricode/padroes-de-commits)
+
+
+ - Lista feita com base no documentação do [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) e neste [README](https://github.com/iuricode/padroes-de-commits), mostrando a descrição dos commits utilizados.
+
+ Tipo do Commit | Emoji | Palavra Chave
+ -------------- | ----- | -------------
+ Aividades  de Cursos | ✒️ `:black_nib:` | `course`
+ Bug Fix | 🐛 `:bug:`	| `fix`
+ Comentários | 💡 `:bulb:` | `docs`
+ Documentação | 📚 `:books:` | `docs`
+ Estilização de Interface | 💄 `:lipstick:` | `feat`
+ Novo recurso | ✨ `:sparkles:`| `feat`
