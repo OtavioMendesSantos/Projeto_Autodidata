@@ -4,8 +4,8 @@ export default function initMenuMobile(){
     const menuButton = document.querySelector('[data-menu="button"]')
     const menuList = document.querySelector('[data-menu="list"]')
     const eventos = ['click', 'touchstart']
-    
-    if(menuButton) return
+
+    if(!menuButton) return
 
     function openMenu(event){
         menuList.classList.add('active')
@@ -15,6 +15,6 @@ export default function initMenuMobile(){
             menuButton.classList.remove('active')
         })
     }
-    
+
     eventos.forEach(userEvent=> menuButton.addEventListener(userEvent, openMenu))
 }
