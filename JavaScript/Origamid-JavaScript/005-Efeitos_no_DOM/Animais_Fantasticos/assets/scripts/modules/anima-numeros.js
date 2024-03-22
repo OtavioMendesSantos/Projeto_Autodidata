@@ -21,12 +21,11 @@ export default function initAnimaNumeros(){
         if (mutation[0].target.classList.contains('ativo')) {
             observer.disconnect()
             animaNumeros()
-            console.log("observou")
         }
     }
     
     const observerTarget = document.querySelector('.numeros')
-    const observer = new MutationObserver(handleMutation); /* Ver Isso */
+    const observer = new MutationObserver(handleMutation);
     
     observer.observe(observerTarget, {attributes: true})
 }
