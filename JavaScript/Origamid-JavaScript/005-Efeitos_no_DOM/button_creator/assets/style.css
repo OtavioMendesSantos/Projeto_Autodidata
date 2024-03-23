@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body{
+    margin: 0;
+    background-color: #ccc;
+}
+
+label{
+    display: block;
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+}
+
+input{
+    display: block;
+}
+
+.button-creator{
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 200px 1fr;
+}
+
+#controles{
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .875rem;
+    background-color: #eee;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+}
+
+.resultado{
+    padding-top: 50px;
+}
+
+.css{
+    display: flex;
+    flex-direction: column;
+    font-family: "IBM Plex Mono", monospace;
+    color: #333;
+    margin-top: 40px;
+    border: 2px solid #333;
+    padding: 10px;
+    border-radius: 10px;
+    width: 400px;
+    min-height: 240px;
+}
+
+.css span{
+    display: block;
+    margin: 0 0 .5rem 0;
+}
+
+.copyBtn{
+    font-family: Georgia;
+    font-size: 2rem;
+    width: 424px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 2px solid;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.copyBtn:hover{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255); 
+}
