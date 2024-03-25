@@ -30,5 +30,9 @@ Principais formações que estou focado no momento:
  Bug Fix | 🐛 `:bug:`	| `fix`
  Comentários | 💡 `:bulb:` | `docs`
  Documentação | 📚 `:books:` | `docs`
+ Em progresso |	🚧 `:construction:` |
  Estilização de Interface | 💄 `:lipstick:` | `feat`
+ Mover/Renomear |	🚚 `:truck:`	| `chore`
  Novo recurso | ✨ `:sparkles:`| `feat`
+ Pequena Alteração	| 🔨 `:hammer:`|
+ Texto	| 📝 `:pencil:` |
