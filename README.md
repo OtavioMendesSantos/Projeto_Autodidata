@@ -35,4 +35,5 @@ Principais formações que estou focado no momento:
  Mover/Renomear |	🚚 `:truck:`	| `chore`
  Novo recurso | ✨ `:sparkles:`| `feat`
  Pequena Alteração	| 🔨 `:hammer:`|
+ Teste Avulso | :trollface: `:trollface:` | 
  Texto	| 📝 `:pencil:` |
