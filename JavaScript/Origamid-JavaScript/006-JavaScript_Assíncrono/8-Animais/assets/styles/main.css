@@ -313,6 +313,13 @@ body{
     transition: .3s;
 }
 
+.btc-preco{
+    background-color: #33FF44;
+    padding: .2rem .5rem;
+    font-weight: bold;
+    border-radius: 2px;
+}
+
 [data-semana]::after{
     content: '';
     display: inline-block;
