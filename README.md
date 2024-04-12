@@ -7,7 +7,7 @@
 Principais formações que estou focado no momento:
  - Análise e Desenvolvimento de Sistemas - Senac
  - Bootcamp Python Data Analytics - DIO
- - HTML e CSS, JavaScript, Design, UI e UX - Origamid
+ - HTML e CSS, JavaScript, React, Design, UI e UX - Origamid
 
 ## 📁 Regras de Formatação de Nomes de Arquivos 
  - Sem Caracteres Especiais
@@ -20,7 +20,6 @@ Principais formações que estou focado no momento:
 
 ## 📑 Commits Semânticos
  - A partir do dia 16/03 comecei a fazer os commits com base no documentação do [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) e neste [README](https://github.com/iuricode/padroes-de-commits)
-
 
  - Lista feita com base no documentação do [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) e neste [README](https://github.com/iuricode/padroes-de-commits), mostrando a descrição dos commits utilizados.
 
@@ -35,5 +34,6 @@ Principais formações que estou focado no momento:
  Mover/Renomear |	🚚 `:truck:`	| `chore`
  Novo recurso | ✨ `:sparkles:`| `feat`
  Pequena Alteração	| 🔨 `:hammer:`|
+ Removendo um arquivo	| 🗑️ `:wastebasket:` |	remove
  Teste Avulso | :trollface: `:trollface:` | 
  Texto	| 📝 `:pencil:` |
