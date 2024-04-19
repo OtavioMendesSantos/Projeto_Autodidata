@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label{
+            display: block;
+            font-family: 'IBM Plex Mono';
+            font-weight: bold;
+            margin: 1rem 0 .5rem 0;
+        }
+
+        input{
+            width: 100%;
+            padding: .5rem;
+            border: 2px solid black;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        input:placeholder{
+           color: #0000007b; 
+        }
+
+        .erro{
+            border-color: red;
+        }
+
+        .valido{
+            border-color: green;
+        }
+
+        .error-text{
+            display: none;
+            font-family: 'IBM Plex Mono';
+            color: red;
+        }
+        
+        .error-text.ativar{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="cpf">CPF</label>
+        <input type="text" name="cpf" id="cpf" placeholder="◘◘◘.◘◘◘.◘◘◘-◘◘">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email">
+    </form>
+    <script src="script.js" type="module"></script>
+</body>
+</html>
