@@ -1,10 +1,12 @@
+import debounce from './debounce.js';
+
 //Animação ao Scroll
 export default class ScrollAnima{
     constructor(sections){
         this.sections = document.querySelectorAll(sections)
         this.windowMetade = window.innerHeight * 0.60
 
-        this.checkDistance = this.checkDistance.bind(this)
+        this.checkDistance = debounce(this.checkDistance.bind(this), 100)
     }
     
     // pega a distância de cada item em relação ao topo do site
