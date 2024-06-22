@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Three.js Interactions Example</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div
+        style="
+          z-index: -2;
+          height: 300vh;
+          width: 30px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: antiquewhite;
+        "
+      ></div>
+      <div id="container-3d" style="z-index: -3; position: fixed"></div>
+    </div>
+    <main id="container-2d"
+    style="width: 90%; margin: auto;">
+      <h1 style="text-align: center; font-size: 3rem; margin: 0 ;" >Olá Mundo</h1>
+      <div style="background-color: red; width: 100px; height: 100px "></div>
+      <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate,
+        consectetur facere saepe illo amet temporibus earum corrupti nostrum
+        neque perspiciatis! Possimus eos, repellendus voluptatum obcaecati
+        voluptatem porro earum ipsam a!
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate,
+        consectetur facere saepe illo amet temporibus earum corrupti nostrum
+        neque perspiciatis! Possimus eos, repellendus voluptatum obcaecati
+        voluptatem porro earum ipsam a!
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate,
+        consectetur facere saepe illo amet temporibus earum corrupti nostrum
+        neque perspiciatis! Possimus eos, repellendus voluptatum obcaecati
+        voluptatem porro earum ipsam a!
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate,
+        consectetur facere saepe illo amet temporibus earum corrupti nostrum
+        neque perspiciatis! Possimus eos, repellendus voluptatum obcaecati
+        voluptatem porro earum ipsam a!
+    </p>
+    <div style="background-color: red; width: 100px; height: 100px "></div>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate,
+        consectetur facere saepe illo amet temporibus earum corrupti nostrum
+        neque perspiciatis! Possimus eos, repellendus voluptatum obcaecati
+        voluptatem porro earum ipsam a!
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate,
+        consectetur facere saepe illo amet temporibus earum corrupti nostrum
+        neque perspiciatis! Possimus eos, repellendus voluptatum obcaecati
+        voluptatem porro earum ipsam a!
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate,
+        consectetur facere saepe illo amet temporibus earum corrupti nostrum
+        neque perspiciatis! Possimus eos, repellendus voluptatum obcaecati
+        voluptatem porro earum ipsam a!
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate,
+        consectetur facere saepe illo amet temporibus earum corrupti nostrum
+        neque perspiciatis! Possimus eos, repellendus voluptatum obcaecati
+        voluptatem porro earum ipsam a!
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate,
+        consectetur facere saepe illo amet temporibus earum corrupti nostrum
+        neque perspiciatis! Possimus eos, repellendus voluptatum obcaecati
+        voluptatem porro earum ipsam a!
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate,
+        consectetur facere saepe illo amet temporibus earum corrupti nostrum
+        neque perspiciatis! Possimus eos, repellendus voluptatum obcaecati
+        voluptatem porro earum ipsam a!
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate,
+        consectetur facere saepe illo amet temporibus earum corrupti nostrum
+        neque perspiciatis! Possimus eos, repellendus voluptatum obcaecati
+        voluptatem porro earum ipsam a!
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate,
+        consectetur facere saepe illo amet temporibus earum corrupti nostrum
+        neque perspiciatis! Possimus eos, repellendus voluptatum obcaecati
+        voluptatem porro earum ipsam a!
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate,
+        consectetur facere saepe illo amet temporibus earum corrupti nostrum
+        neque perspiciatis! Possimus eos, repellendus voluptatum obcaecati
+        voluptatem porro earum ipsam a!
+      </p>
+    </main>
+
+    Mazda RX-7 by IvOfficial [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/SnIoWlh7S2)
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script>
+        // 1. Criar a cena
+        const scene = new THREE.Scene();
+
+        // 2. Criar a câmera
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        
+        // 3. Criar o renderizador e anexá-lo ao documento
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.querySelector("#container-3d").appendChild(renderer.domElement);
+
+        // 4. Definir a cor de fundo inicial da cena
+        renderer.setClearColor(0x87CEEB); // cor azul claro (light sky blue)
+
+        // 5. Adicionar controles orbitais para a câmera
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+        // 6. Carregar o modelo GLB
+        const loader = new THREE.GLTFLoader();
+        let model;
+        loader.load(
+            "./Mazda RX-7.glb",
+            function (gltf) {
+                model = gltf.scene;
+                scene.add(model);
+            },
+            undefined,
+            function (error) {
+                console.error(error);
+            }
+        );
+
+        // Adicionar luzes
+        const ambientLight = new THREE.AmbientLight(0x404040, 2);
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(5, 10, 7.5);
+        scene.add(directionalLight);
+
+        // Posicionar a câmera
+        camera.position.z = 5;
+
+        // 7. Raycaster para detectar interações com objetos
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+
+        function onMouseMove(event) {
+            // Atualizar as coordenadas do mouse
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        }
+
+        function onClick(event) {
+            // Atualizar o raycaster com a posição do mouse
+            raycaster.setFromCamera(mouse, camera);
+
+            // Calcular objetos intersectados
+            const intersects = raycaster.intersectObjects(scene.children, true);
+
+            if (intersects.length > 0) {
+                const object = intersects[0].object;
+                console.log("Objeto clicado:", object);
+                // Adicione aqui a lógica para interação com o objeto clicado
+            }
+
+            // Mudar a cor de fundo aleatoriamente
+            changeBackgroundColor();
+        }
+
+        function changeBackgroundColor() {
+            // Gerar uma cor hexadecimal aleatória
+            const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+            renderer.setClearColor(`#${randomColor}`);
+        }
+
+        function onScroll(event) {
+            if (model) {
+                // Detectar a direção do scroll
+                const scrollDirection = event.deltaY > 0 ? .5 : -.5; // 1 para baixo, -1 para cima
+
+                // Ajustar a rotação do modelo baseado na direção do scroll
+                model.rotation.y += 0.05 * scrollDirection;
+            }
+        }
+
+        window.addEventListener("mousemove", onMouseMove, false);
+        window.addEventListener("click", onClick, false);
+        window.addEventListener("wheel", onScroll, false);
+
+        // 8. Configurar a animação
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update(); // Atualizar controles orbitais
+            renderer.render(scene, camera);
+        }
+
+        // Iniciar a animação
+        animate();
+    </script>
+  </body>
+</html>
