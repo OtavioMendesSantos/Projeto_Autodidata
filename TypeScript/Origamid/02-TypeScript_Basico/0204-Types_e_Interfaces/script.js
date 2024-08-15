@@ -1,4 +1,5 @@
 "use strict";
+;
 function preencherDados(dados) {
     document.body.innerHTML += `
     <div>

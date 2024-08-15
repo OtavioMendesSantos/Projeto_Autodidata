@@ -1,4 +1,4 @@
-type Aluno = {
+interface Aluno  {
   nome: string;
   idade: number;
   teclado: boolean;
