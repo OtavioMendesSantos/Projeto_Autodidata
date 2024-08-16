@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // Tipo de JS a ser compilado
+    "strict": true //JS deve ser estrito
+  }
+}
