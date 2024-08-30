@@ -1,49 +1,39 @@
 class Produto {
-  nome: String;
-  preco: number;
-  cor?: string;
+  nome: string;
 
-  constructor(nome: String, preco: number, cor?: string) {
+  constructor(nome: string) {
     this.nome = nome;
-    this.preco = preco;
-    this.cor = cor;
-  }
-
-  precoReal(): string {
-    return this.preco.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    });
   }
 }
 
-const livro1 = new Produto("Dorohedoro 1", 24.5);
-const livro2 = new Produto("Dorohedoro 2", 34.5, "Azul");
+const livro1 = new Produto("Dorohedoro 1");
+const livro2 = new Produto("Dorohedoro 2");
 console.log(livro1.nome);
-console.log(livro1.precoReal());
 
 console.log(livro1 instanceof Produto);
 
-class Livro {
+class Livro extends Produto {
   autor: string;
-  constructor(autor: string) {
+  constructor(nome: string, autor: string) {
+    super(nome);
     this.autor = autor;
   }
 }
 
-class Jogo {
+class Jogo extends Produto {
   jogadores: number;
-  constructor(jogadores: number) {
+  constructor(nome: string, jogadores: number) {
+    super(nome)
     this.jogadores = jogadores;
   }
 }
 
 function buscarProduto(busca: string){
     if (busca === 'Dorohedoro 1'){
-        return new Livro('Q. Hayashida')
+        return new Livro('Dorohedoro 1', 'Q. Hayashida')
     }
     if (busca === 'Dark Souls'){
-        return new Jogo(1)
+        return new Jogo('Hidetaka Miyazaki', 1)
     }
     return null
 }
@@ -57,3 +47,30 @@ const jogo = buscarProduto('Dark Souls');
 if (jogo instanceof Jogo){
     console.log(jogo.jogadores)
 }
+
+if (produto instanceof Produto){ 
+  // Produto é uma instancia de Produto, pois Livro herda de Produto
+  console.log(produto.nome);
+}
+
+//* instanceof verifica se um objeto pertence a uma classe 
+
+interface Carro {
+  nome: string;
+}
+
+const honda: Carro = {
+  nome: 'Honda',
+}
+
+interface Caminhao extends Carro {
+  rodas: number;
+}
+
+const camburao: Caminhao = {
+  nome: 'Camburão',
+  rodas: 8
+} 
+
+//* Interface cria um contrato/modelo para um objeto. 
+//* Interface ≠ Classe

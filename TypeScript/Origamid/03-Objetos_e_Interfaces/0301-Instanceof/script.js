@@ -1,43 +1,34 @@
 "use strict";
 class Produto {
     nome;
-    preco;
-    cor;
-    constructor(nome, preco, cor) {
+    constructor(nome) {
         this.nome = nome;
-        this.preco = preco;
-        this.cor = cor;
-    }
-    precoReal() {
-        return this.preco.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-        });
     }
 }
-const livro1 = new Produto("Dorohedoro 1", 24.5);
-const livro2 = new Produto("Dorohedoro 2", 34.5, "Azul");
+const livro1 = new Produto("Dorohedoro 1");
+const livro2 = new Produto("Dorohedoro 2");
 console.log(livro1.nome);
-console.log(livro1.precoReal());
 console.log(livro1 instanceof Produto);
-class Livro {
+class Livro extends Produto {
     autor;
-    constructor(autor) {
+    constructor(nome, autor) {
+        super(nome);
         this.autor = autor;
     }
 }
-class Jogo {
+class Jogo extends Produto {
     jogadores;
-    constructor(jogadores) {
+    constructor(nome, jogadores) {
+        super(nome);
         this.jogadores = jogadores;
     }
 }
 function buscarProduto(busca) {
     if (busca === 'Dorohedoro 1') {
-        return new Livro('Q. Hayashida');
+        return new Livro('Dorohedoro 1', 'Q. Hayashida');
     }
     if (busca === 'Dark Souls') {
-        return new Jogo(1);
+        return new Jogo('Hidetaka Miyazaki', 1);
     }
     return null;
 }
@@ -49,3 +40,16 @@ const jogo = buscarProduto('Dark Souls');
 if (jogo instanceof Jogo) {
     console.log(jogo.jogadores);
 }
+if (produto instanceof Produto) {
+    // Produto é uma instancia de Produto, pois Livro herda de Produto
+    console.log(produto.nome);
+}
+const honda = {
+    nome: 'Honda',
+};
+const camburao = {
+    nome: 'Camburão',
+    rodas: 8
+};
+//* Interface cria um contrato/modelo para um objeto. 
+//* Interface ≠ Classe
