@@ -1,4 +1,4 @@
-class Produto {
+/* class Produto {
   nome: string;
 
   constructor(nome: string) {
@@ -74,3 +74,11 @@ const camburao: Caminhao = {
 
 //* Interface cria um contrato/modelo para um objeto. 
 //* Interface ≠ Classe
+*/
+
+const linkOrigamid = document.getElementById('origamid')
+
+if (linkOrigamid instanceof HTMLAnchorElement){
+  linkOrigamid.href = linkOrigamid.href.replace('http://', 'https://')
+}
+
