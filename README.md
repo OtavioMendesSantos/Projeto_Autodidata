@@ -13,7 +13,9 @@ Lista feita com base na documentação do [Conventional Commits](https://www.con
 
  Tipo do Commit | Emoji | Palavra Chave
  -------------- | ----- | -------------
- Aividades  de Cursos | ✒️ `:black_nib:` | `course`
+ Adicionando um teste |	✅ `:white_check_mark:`	| `test`
+ Animações e transições	| 💫 `:dizzy:` | `animate`
+ Atividades  de Cursos | ✒️ `:black_nib:` | `course`
  Bug Fix | 🐛 `:bug:`	| `fix`
  Comentários | 💡 `:bulb:` | `docs`
  Documentação | 📚 `:books:` | `docs`
@@ -22,9 +24,11 @@ Lista feita com base na documentação do [Conventional Commits](https://www.con
  Mover/Renomear |	🚚 `:truck:`	| `chore`
  Novo recurso | ✨ `:sparkles:`| `feat`
  Pequena Alteração	| 🔨 `:hammer:`| `fix`
+ Refatoração |	♻️ `:recycle:` | `refactor`
  Removendo um arquivo	| 🗑️ `:wastebasket:` |	`remove`
  Teste Avulso | :trollface: `:trollface:` | `test`
  Texto	| 📝 `:pencil:` | `text`
+ Tipagem |	🏷️ `:label:` | `type`
 
 ## 📁 Regras de Formatação de Nomes de Arquivos 
  - Sem Caracteres Especiais
