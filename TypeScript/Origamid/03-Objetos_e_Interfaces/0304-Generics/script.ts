@@ -38,13 +38,49 @@
 // notNull(200)?.toFixed(2)
 // notNull('teste')?.charAt(0)
 
-function tipoDado<T>(a: T): {dado: T, type: string} {
-  const resultado = {
-    dado: a,
-    type: typeof a,
-  };
+// function tipoDado<T>(a: T): {dado: T, type: string} {
+//   const resultado = {
+//     dado: a,
+//     type: typeof a,
+//   };
 
-  return resultado;
+//   return resultado;
+// }
+
+// tipoDado(200).type
+
+// function extractText<T extends HTMLElement>(el: T) {
+//   console.log(el.innerText);
+//   return {
+//     texto: el.innerText,
+//     el
+//   };
+// }
+
+// const a = document.querySelector("a");
+// a && console.log(extractText(a));
+
+function $<T extends Element>(seletor: string): T | null {
+  return document.querySelector(seletor);
 }
 
-tipoDado(200).type
+const link = $<HTMLAnchorElement>("a");
+console.log(link);
+
+async function getData<T>(url: string): Promise<T> {
+  const response = await fetch(url);
+  return await response.json();
+}
+
+interface Notebook {
+  nome: string;
+  preco: number;
+}
+
+async function handleData() {
+  const notebook = await getData<Notebook>(
+    "https://api.origamid.dev/json/notebook.json"
+  );
+  console.log(notebook);
+}
+handleData();
