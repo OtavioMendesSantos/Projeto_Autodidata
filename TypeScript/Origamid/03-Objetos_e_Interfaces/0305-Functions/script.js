@@ -1,10 +1,18 @@
 "use strict";
-function somar(a, b, c) {
-    return a + b + (c || 0);
+// function somar(a: number, b: number, c?: number): number {
+//   return a + b + (c || 0);
+// }
+function normalizar(valor) {
+    if (Array.isArray(valor)) {
+        return valor.map((v) => v.trim().toLowerCase());
+    }
+    else {
+        return valor.trim().toLowerCase();
+    }
 }
-console.log(somar(1, 2));
-console.log(somar(1, 2, 3));
-function pintarTela(cor) {
-    document.body.style.background = cor;
+function $(selector) {
+    return document.querySelector(selector);
 }
-pintarTela('red'); // Aqui o retorno da função é void
+$("a");
+$("video");
+$(".item");
