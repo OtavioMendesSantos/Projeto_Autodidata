@@ -1,18 +1,14 @@
 "use strict";
-// function somar(a: number, b: number, c?: number): number {
-//   return a + b + (c || 0);
-// }
-function normalizar(valor) {
-    if (Array.isArray(valor)) {
-        return valor.map((v) => v.trim().toLowerCase());
+// // function somar(a: number, b: number, c?: number): number {
+// //   return a + b + (c || 0);
+// // }
+function arredondar(n) {
+    if (typeof n === "string") {
+        return Math.ceil(Number(n)).toString();
     }
     else {
-        return valor.trim().toLowerCase();
+        return Math.ceil(n);
     }
 }
-function $(selector) {
-    return document.querySelector(selector);
-}
-$("a");
-$("video");
-$(".item");
+console.log(arredondar(69.69));
+console.log(arredondar('69.69'));
