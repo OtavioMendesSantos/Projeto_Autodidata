@@ -14,6 +14,7 @@ Lista feita com base na documentação do [Conventional Commits](https://www.con
  Tipo do Commit | Emoji | Palavra Chave
  -------------- | ----- | -------------
  Adicionando um teste |	✅ `:white_check_mark:`	| `test`
+ Adicionando uma dependência	|➕ `:heavy_plus_sign:` |	`build`
  Animações e transições	| 💫 `:dizzy:` | `animate`
  Atividades  de Cursos | ✒️ `:black_nib:` | `course`
  Bug Fix | 🐛 `:bug:`	| `fix`
