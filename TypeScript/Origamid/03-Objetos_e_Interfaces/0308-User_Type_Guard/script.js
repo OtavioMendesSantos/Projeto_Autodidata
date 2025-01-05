@@ -1,45 +1,41 @@
 "use strict";
+// const fetchCursos = async () => {
+//   const response = await fetch("https://api.origamid.dev/json/cursos.json");
+//   const json = await response.json();
+//   handleCursos(json);
+// };
+// fetchCursos();
 const fetchCursos = async () => {
     const response = await fetch("https://api.origamid.dev/json/cursos.json");
     const json = await response.json();
     handleCursos(json);
 };
 fetchCursos();
-const handleCursos = (data) => {
-    if (data instanceof Array) {
-        console.log("É instância de Array");
-    }
-    if (Array.isArray(data)) {
-        console.log("É array");
-    }
-};
-function isString(value) {
-    return typeof value === "string";
-}
-const handleData = (data) => {
-    if (isString(data)) {
-        data.toUpperCase();
-    }
-};
-async function fetchProduto() {
-    const response = await fetch("https://api.origamid.dev/json/notebook.json");
-    const json = await response.json();
-    handleProduto(json);
-}
-fetchProduto();
-function isProduto(value) {
+function isCurso(value) {
     if (value &&
         typeof value === "object" &&
         "nome" in value &&
-        "preco" in value) {
+        typeof value.nome &&
+        "horas" in value &&
+        typeof value.horas === "number" &&
+        "tags" in value &&
+        Array.isArray(value.tags)) {
         return true;
     }
-    else {
-        return false;
-    }
+    return false;
 }
-function handleProduto(data) {
-    if (isProduto(data)) {
-        console.log(data);
+const handleCursos = (data) => {
+    if (Array.isArray(data)) {
+        data
+            .filter((curso) => isCurso(curso))
+            .forEach((curso) => {
+            document.body.innerHTML += `
+          <div>
+            <h2>${curso.nome}</h2>
+            <p>Horas: ${curso.horas}</p>
+            <p>Tags: ${curso.tags.join(", ")}</p>
+          </div>
+        `;
+        });
     }
-}
+};
