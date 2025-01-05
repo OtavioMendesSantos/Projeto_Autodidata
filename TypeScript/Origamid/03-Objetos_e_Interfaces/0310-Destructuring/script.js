@@ -9,7 +9,7 @@ handleData({
     nome: "543657",
     preco: 2999,
 });
-function handleClick({ currentTarget, pageX, pageY, }) {
+function handleClick({ currentTarget, pageX, pageY }) {
     if (!currentTarget)
         return;
     requestAnimationFrame(() => {
@@ -27,3 +27,12 @@ function handleClick({ currentTarget, pageX, pageY, }) {
     });
 }
 document.documentElement.addEventListener("click", handleClick);
+function comparar(tipo, ...numeros) {
+    if (tipo === "maior") {
+        console.log(Math.max(...numeros));
+    }
+    else {
+        console.log(Math.min(...numeros));
+    }
+}
+comparar("menor", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);

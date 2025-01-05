@@ -19,18 +19,16 @@ handleData({
   preco: 2999,
 });
 
-function handleClick({
-  currentTarget,
-  pageX,
-  pageY,
-}: MouseEvent) {
+function handleClick({ currentTarget, pageX, pageY }: MouseEvent) {
   if (!currentTarget) return;
 
   requestAnimationFrame(() => {
     const element = document.createElement("div");
     element.style.width = "20px";
     element.style.height = "20px";
-    element.style.backgroundColor = `#${Math.floor(Math.random() * 0xffffff).toString(16)}`;
+    element.style.backgroundColor = `#${Math.floor(
+      Math.random() * 0xffffff
+    ).toString(16)}`;
     element.style.position = "absolute";
     element.style.transform = "translate(-50%, -50%)";
     element.style.borderRadius = "50%";
@@ -42,3 +40,13 @@ function handleClick({
 }
 
 document.documentElement.addEventListener("click", handleClick);
+
+function comparar(tipo: "maior" | "menor", ...numeros: number[]) {
+  if (tipo === "maior") {
+    console.log(Math.max(...numeros));
+  } else {
+    console.log(Math.min(...numeros));
+  }
+}
+
+comparar("menor", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
