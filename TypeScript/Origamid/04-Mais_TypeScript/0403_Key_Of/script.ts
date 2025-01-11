@@ -29,8 +29,48 @@ interface Elementos {
   h1: HTMLHeadingElement;
 }
 
-function selecionar<Chave extends keyof Elementos>(seletor: Chave):Elementos[Chave] | null {
-  return document.querySelector(seletor)
+function selecionar<Chave extends keyof Elementos>(
+  seletor: Chave
+): Elementos[Chave] | null {
+  return document.querySelector(seletor);
 }
 
-selecionar('a')
+selecionar("a");
+
+async function fetchData(url: string) {
+  const base = "https://api.origamid.dev/json/";
+  const response = await fetch(base + url);
+  return response.json();
+}
+
+interface Jogo {
+  nome: string;
+  ano: number;
+  desenvolvedora: string;
+  plataforma: string[];
+}
+
+interface Livro {
+  nome: string;
+  ano: number;
+  autor: string;
+  paginas: string[];
+}
+
+function checkInterface<Interface>(
+  obj: unknown,
+  key: keyof Interface
+): obj is Interface {
+  if (obj && typeof obj === "object" && key in obj) {
+    return true;
+  }
+  return false;
+}
+
+async function handleData() {
+  const jogo = await fetchData("jogo.json");
+  console.log(checkInterface<Jogo>(jogo, "desenvolvedora"), jogo);
+
+  const livro = await fetchData("livro.json");
+  console.log(checkInterface<Livro>(livro, "autor"), livro);
+}
