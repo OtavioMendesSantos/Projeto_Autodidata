@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "sourceMap": true,
+      "allowJs": true,
+      "removeComments": true,
+      "strict": true,
+      "noImplicitReturns": true,
+      "outDir": "dist",
+      "isolatedModules": true,
+      "declaration": true
+    },
+    "include": ["src", "src/types/global.d.ts"],
+    "exclude": ["node_modules"]
+  }
+  
