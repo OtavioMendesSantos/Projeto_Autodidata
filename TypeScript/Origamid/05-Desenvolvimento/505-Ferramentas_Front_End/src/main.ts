@@ -1,9 +1,9 @@
 import _ from "lodash";
 import ClipboardJS from "clipboard";
 
-interface Produto {
+/* interface Produto {
   nome: string;
-}
+} */
 
 /* const livro: Produto = {
   nome: "Livro",
