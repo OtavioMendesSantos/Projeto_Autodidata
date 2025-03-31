@@ -1,4 +1,5 @@
 import moedaParaNumero from "./moedaParaNumero.js";
+import stringToDate from "./stringToDate.js";
 
 export default function normalizarTransacao(
   transacao: TransacaoAPI
@@ -17,10 +18,10 @@ export default function normalizarTransacao(
   return {
     nome: Nome,
     id: ID,
-    data: Data,
     status: Status,
     email: Email,
     moeda: Valor,
+    data: stringToDate(Data),
     valor: moedaParaNumero(Valor),
     pagamento: Pagamento,
     novo: Boolean(ClienteNovo),
