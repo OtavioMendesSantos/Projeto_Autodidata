@@ -1,3 +1,5 @@
+import moedaParaNumero from "./moedaParaNumero.js";
+
 export default function normalizarTransacao(
   transacao: TransacaoAPI
 ): Transacao {
@@ -19,7 +21,7 @@ export default function normalizarTransacao(
     status: Status,
     email: Email,
     moeda: Valor,
-    valor: 0,
+    valor: moedaParaNumero(Valor),
     pagamento: Pagamento,
     novo: Boolean(ClienteNovo),
   };

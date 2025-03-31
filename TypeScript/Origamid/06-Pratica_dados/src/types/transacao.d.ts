@@ -31,7 +31,7 @@ declare global {
     email: string;
     novo: boolean;
     moeda: string;
-    valor: number | string;
+    valor: number | null;
     pagamento: FormaPagamento;
   }
 }
