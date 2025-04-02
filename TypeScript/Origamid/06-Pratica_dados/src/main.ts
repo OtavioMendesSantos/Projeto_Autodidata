@@ -24,9 +24,14 @@ function preencherLista(lista: CountList, containerId: string): void {
 
 function preencherEstatisticas(transacoes: Transacao[]): void {
   const data = new Estatisticas(transacoes);
-
+console.log(data)
   preencherLista(data.pagamento, "pagamentos");
   preencherLista(data.status, "status");
+
+  const diaElement = document.querySelector<HTMLElement>("#maisVendido span");
+  if (diaElement) {
+    diaElement.innerText = data.melhorDia[0];
+  }
 
   const totalElement = document.querySelector<HTMLElement>("#total span");
   if (totalElement) {
@@ -38,7 +43,6 @@ function preencherEstatisticas(transacoes: Transacao[]): void {
 }
 
 function preencherTabela(transacoes: Transacao[]): void {
-  console.log(transacoes);
   const tabela = document.querySelector<HTMLTableElement>("#transacoes tbody");
   if (!tabela) return;
   transacoes.forEach((transacao) => {

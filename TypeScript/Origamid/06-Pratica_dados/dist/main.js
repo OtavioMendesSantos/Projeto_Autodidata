@@ -19,8 +19,13 @@ function preencherLista(lista, containerId) {
 }
 function preencherEstatisticas(transacoes) {
     const data = new Estatisticas(transacoes);
+    console.log(data);
     preencherLista(data.pagamento, "pagamentos");
     preencherLista(data.status, "status");
+    const diaElement = document.querySelector("#maisVendido span");
+    if (diaElement) {
+        diaElement.innerText = data.melhorDia[0];
+    }
     const totalElement = document.querySelector("#total span");
     if (totalElement) {
         totalElement.innerText = data.total.toLocaleString("pt-BR", {
@@ -30,7 +35,6 @@ function preencherEstatisticas(transacoes) {
     }
 }
 function preencherTabela(transacoes) {
-    console.log(transacoes);
     const tabela = document.querySelector("#transacoes tbody");
     if (!tabela)
         return;
