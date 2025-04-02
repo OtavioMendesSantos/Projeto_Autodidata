@@ -1,3 +1,5 @@
+import Timeout from "./Timeout.js";
+
 export default class Slide {
   container;
   slides;
@@ -5,6 +7,7 @@ export default class Slide {
   time;
   index: number;
   slide: Element;
+  timeout: Timeout | null;
 
   constructor(
     container: Element,
@@ -20,15 +23,19 @@ export default class Slide {
     this.index = 0;
     this.slide = this.slides[this.index];
 
+    this.timeout = null;
     this.init();
   }
 
   prev() {
-    this.show(this.index > 0 ? this.index - 1 : this.slides.length - 1);
+    console.log(this.time);
+    const prev = this.index > 0 ? this.index - 1 : this.slides.length - 1;
+    this.show(prev);
   }
 
   next() {
-    this.show(this.index + 1 < this.slides.length ? this.index + 1 : 0);
+    const next = this.index + 1 < this.slides.length ? this.index + 1 : 0;
+    this.show(next);
   }
 
   addControls() {
@@ -43,11 +50,6 @@ export default class Slide {
     prevButton.addEventListener("pointerup", () => this.prev());
   }
 
-  private init() {
-    this.addControls();
-    this.show(this.index);
-  }
-
   hide(el: Element) {
     el.classList.remove("active");
   }
@@ -58,5 +60,19 @@ export default class Slide {
 
     this.slides.forEach((slide) => this.hide(slide));
     this.slides[index].classList.add("active");
+    this.auto(this.time);
+  }
+
+  auto(time: number) {
+    this.timeout?.clear();
+    this.timeout = new Timeout(() => {
+      console.log("ativou");
+      this.next();
+    }, time);
+  }
+
+  private init() {
+    this.addControls();
+    this.show(this.index);
   }
 }
