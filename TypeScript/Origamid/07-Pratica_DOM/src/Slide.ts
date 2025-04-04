@@ -47,6 +47,7 @@ export default class Slide {
 
   pause() {
     this.pausedTimeout = new Timeout(() => {
+      this.timeout?.pause()
       this.paused = true;
     }, 300)
   }
@@ -55,7 +56,7 @@ export default class Slide {
     this.pausedTimeout?.clear();
     if (this.paused) {
       this.paused = false;
-      this.auto(this.time);
+      this.timeout?.continue();
     };
   }
 
