@@ -3,11 +3,11 @@ export default class Timeout {
   handler;
 
   constructor(handler: TimerHandler, timer: number) {
-    this.id = setTimeout(() => console.log(handler), timer);
+    this.id = setTimeout(handler, timer);
     this.handler = handler;
   }
 
-  clear(){
+  clear() {
     clearTimeout(this.id);
   }
 }
