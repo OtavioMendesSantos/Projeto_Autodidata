@@ -15,7 +15,9 @@ export default class Slide {
         this.controls = controls;
         this.time = time;
         this.paused = false;
-        this.index = 0;
+        this.index = localStorage.getItem("activeSlide")
+            ? Number(localStorage.getItem("activeSlide"))
+            : 0;
         this.slide = this.slides[this.index];
         this.timeout = null;
         this.pausedTimeout = null;
@@ -35,8 +37,10 @@ export default class Slide {
     }
     pause() {
         this.pausedTimeout = new Timeout(() => {
-            this.timeout?.pause();
             this.paused = true;
+            this.timeout?.pause();
+            if (this.slide instanceof HTMLVideoElement)
+                this.slide.pause();
         }, 300);
     }
     continue() {
@@ -44,8 +48,9 @@ export default class Slide {
         if (this.paused) {
             this.paused = false;
             this.timeout?.continue();
+            if (this.slide instanceof HTMLVideoElement)
+                this.slide.play();
         }
-        ;
     }
     addControls() {
         const prevButton = document.createElement("button");
@@ -65,15 +70,35 @@ export default class Slide {
             this.next();
         }, time);
     }
+    autoVideo(video) {
+        video.muted = true;
+        video.play();
+        let firstPlay = true;
+        video.addEventListener('playing', () => {
+            if (firstPlay)
+                this.auto(video.duration * 1000);
+            firstPlay = false;
+        });
+    }
     hide(el) {
         el.classList.remove("active");
+        if (el instanceof HTMLVideoElement) {
+            el.pause();
+            el.currentTime = 0;
+        }
     }
     show(index) {
         this.index = index;
         this.slide = this.slides[index];
         this.slides.forEach((slide) => this.hide(slide));
         this.slides[index].classList.add("active");
-        this.auto(this.time);
+        localStorage.setItem("activeSlide", index.toString());
+        if (this.slide instanceof HTMLVideoElement) {
+            this.autoVideo(this.slide);
+        }
+        else {
+            this.auto(this.time);
+        }
     }
     init() {
         this.addControls();
