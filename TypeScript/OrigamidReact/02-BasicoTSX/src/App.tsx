@@ -1,6 +1,7 @@
 import React from "react"
 import Button from "./Button"
 import Input from "./Input"
+import Checkbox from "./Checkbox"
 
 const App = () => {
   const [total, setTotal] = React.useState(0)
@@ -30,6 +31,7 @@ const App = () => {
         value={nome}
         onChange={(e) => setNome(e.target.value)}
       />
+      <Checkbox label={'Termos e condições'}/>
     </div>
   )
 }
