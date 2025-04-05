@@ -1,4 +1,5 @@
 import React from "react"
+import Button from "./Button"
 
 const App = () => {
   const [total, setTotal] = React.useState(0)
@@ -14,9 +15,9 @@ const App = () => {
     <div>
       <p>{total}</p>
       <div className="flex">
-      <button onClick={increment}>Incrementar</button>
-      <button onClick={decrement}>Decrementar</button>
-      <button onClick={() => setTotal(0)}>Zerar</button>
+      <Button onClick={() => setTotal(0)}>Zerar</Button>
+      <Button onClick={decrement}>Decrementar</Button>
+      <Button onClick={increment}>Incrementar</Button>
       </div>
     </div>
   )
