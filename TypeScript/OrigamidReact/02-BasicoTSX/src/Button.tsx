@@ -1,15 +1,17 @@
 import React from 'react'
 
-interface ButtonProps{
-    children: React.ReactNode
-    onClick?: () => void
-    disabled?: boolean
-}
+type ButtonProps = React.PropsWithChildren & React.ComponentProps<'button'> & {}
 
-const Button = ({children, onClick, disabled}: ButtonProps) => {
-  return (
-    <button onClick={onClick} disabled={disabled}>{children}</button>
-  )
+const Button = ({ children, onClick, disabled, ...props }: ButtonProps) => {
+    return (
+        <button
+            onClick={onClick}
+            disabled={disabled}
+            {...props}
+        >
+            {children}
+        </button>
+    )
 }
 
 export default Button
