@@ -1,37 +1,29 @@
-import React from "react"
-import Button from "./components/Button"
-import Input from "./components/Input"
-import Checkbox from "./components/Checkbox"
+import React, { useEffect } from "react"
+
+function returnUser() {
+  return {
+    name: 'Lucas',
+    age: 28,
+    email: 'lucas@origamid.com'
+  }
+}
+
+type User = ReturnType<typeof returnUser>
 
 const App = () => {
-  const [total, setTotal] = React.useState(0)
-  const [nome, setNome] = React.useState("")
+  const [user, setUser] = React.useState<User | null>(null)
 
-  function increment() {
-    setTotal(total + 1)
-  }
-  function decrement() {
-    setTotal(total - 1)
-  }
+  useEffect(() => {
+    setTimeout(() => {
+      setUser(returnUser())
+    }, 1000)
+  }, [])
 
   return (
     <div>
-      <p>{total}</p>
-      <div className="flex">
-        <Button onClick={() => setTotal(0)}>Zerar</Button>
-        <Button onClick={decrement}>Decrementar</Button>
-        <Button onClick={increment}>Incrementar</Button>
-      </div>
-      {nome}
-      <Input
-        type="text"
-        id="nome"
-        label="Nome"
-        placeholder="Digite seu nome"
-        value={nome}
-        onChange={(e) => setNome(e.target.value)}
-      />
-      <Checkbox label={'Termos e condições'}/>
+      <h1>{user?.name}</h1>
+      <h2>{user?.age}</h2>
+      <h3>{user?.email}</h3>
     </div>
   )
 }
