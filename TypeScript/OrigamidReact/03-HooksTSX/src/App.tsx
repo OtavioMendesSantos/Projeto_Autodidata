@@ -82,6 +82,8 @@ const App = () => {
     }
   }
 
+  // O useEffect n precisa de anotação de tipos
+  // A nossa única preocupação é q seja passada uma função e que o retorno, caso haja, também seja uma função;
   useEffect(() => {
     if (vendas.length > 0) {
       setData(vendas)
