@@ -4,16 +4,21 @@ import Video from "./sections/Video";
 import Produtos from "./sections/Produtos";
 import { UiContextProvider } from "./context/UiContext";
 import Header from "./components/Header";
+import { UserContextProvider } from "./context/UserContext";
+import Content from "./sections/Content";
 
 const App = () => {
   return (
     <UiContextProvider>
-      <div>
-        <Header />
-        {/* <Vendas /> */}
-        {/* <Video /> */}
-        {/* <Produtos /> */}
-      </div>
+      <UserContextProvider>
+        <div>
+          <Header />
+          <Content />
+          {/* <Vendas /> */}
+          {/* <Video /> */}
+          {/* <Produtos /> */}
+        </div>
+      </UserContextProvider>
     </UiContextProvider>
   )
 }
