@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import videoSrc from '../assets/video.mp4'
 import Button from '../components/Button'
+import useLocalStorage from '../hook/useLocalStorage'
 
 const Video = () => {
     // Adicione funcionalidades ao player de vídeo:
@@ -15,6 +16,7 @@ const Video = () => {
     const [running, setRunning] = useState(false)
     const [playbackRate, setPlaybackRate] = useState(1)
     const [muted, setMuted] = useState(false)
+    const [volume, setVolume] = useLocalStorage('volume', '0')
 
     useEffect(() => {
         if (videoRef.current !== null) {
@@ -71,8 +73,30 @@ const Video = () => {
         }
     }
 
+    useEffect(() => {
+        if (videoRef.current) {
+            const n = Number(volume);
+            if (n >= 0 && n <= 1) {
+                videoRef.current.volume = n;
+            } else {
+                console.error('Volume must be between 0 and 1');
+            }
+        }
+    }, [volume])
+
     return (
         <div>
+            <div className="flex">
+                <Button onClick={() => { setVolume('0'); }}>
+                    0
+                </Button>
+                <Button onClick={() => { setVolume('0.5'); }}>
+                    50
+                </Button>
+                <Button onClick={() => { setVolume('1'); }}>
+                    100
+                </Button>
+            </div>
             <video
                 ref={videoRef}
                 src={videoSrc}
