@@ -17,7 +17,6 @@ const App = () => {
   const produtos = useFetch<Produto[]>('https://data.origamid.dev/produtos')
   const produto = useFetch<Produto>('https://data.origamid.dev/produtos/p001')
 
-
   React.useEffect(() => {
     console.log('data', produtos.data)
     console.log('loading', produtos.loading)

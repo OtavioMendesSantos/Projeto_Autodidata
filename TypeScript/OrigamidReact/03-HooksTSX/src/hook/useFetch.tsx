@@ -1,6 +1,6 @@
 // Crie um custom hook chamado useFetch.
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // 1 - Este hook deve retornar a interface:
 interface FetchState<T> {
@@ -26,30 +26,47 @@ function useFetch<T>(url: RequestInfo | URL, options?: RequestInit): FetchState<
     const [loading, setLoading] = useState<boolean>(false)
     const [error, setError] = useState<string | null>(null)
 
+    // É definido apenas uma vez e fica armazenado na memória;
+    const optionsRef = useRef(options);
+    optionsRef.current = options;
+
     useEffect(() => {
+        const controller = new AbortController();
+        const { signal } = controller;
+
         async function handleRequest() {
             try {
-                setLoading(true)
-                setError(null)
-                setData(null)
+                setLoading(true);
+                setError(null);
+                setData(null);
 
-                const response = await fetch(url, options);
-                const json: T = await response.json();
+                const response = await fetch(url, {
+                    signal,
+                    ...optionsRef.current
+                });
 
-                setData(json)
+                if (!response.ok) {
+                    throw new Error(`Erro: ${response.status}`)
+                };
+
+                const json = await response.json() as T;
+                if (!signal.aborted) return; setData(json)
             } catch (error: unknown) {
+                if (signal.aborted) return;
+
                 if (error instanceof Error) {
                     setError(error.message)
                 } else {
                     setError('Erro desconhecido')
                 }
             } finally {
-                setLoading(false)
+                if (!signal.aborted) setLoading(false)
             }
-
-        }
+        };
 
         handleRequest();
+
+        return () => controller.abort();
     }, [url])
 
     return { data, loading, error };
