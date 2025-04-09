@@ -6,14 +6,16 @@ import { UiContextProvider } from "./context/UiContext";
 import Header from "./components/Header";
 import { UserContextProvider } from "./context/UserContext";
 import Content from "./sections/Content";
+import Form from "./components/Form";
 
 const App = () => {
   return (
     <UiContextProvider>
       <UserContextProvider>
         <div>
-          <Header />
-          <Content />
+          {/* <Header />
+          <Content /> */}
+          <Form />
           {/* <Vendas /> */}
           {/* <Video /> */}
           {/* <Produtos /> */}
