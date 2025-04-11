@@ -37,7 +37,7 @@ const Resumo = () => {
           </span>
         </div>
       </div>
-      <div className="box">
+      <div className="box mb">
           graficos
       </div>
     </section>
