@@ -105,6 +105,7 @@ ul {
     text-decoration: none;
     color: var(--color-1);
     padding: var(--gap-s) 0;
+    margin: .25rem;
 }
 
 .sidenav li:hover span {
