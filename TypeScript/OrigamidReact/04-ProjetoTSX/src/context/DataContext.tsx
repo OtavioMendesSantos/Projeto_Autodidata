@@ -2,7 +2,7 @@ import React from "react";
 import useFetch from "../hooks/useFetch";
 
 interface IVenda {
-    id: BigIntToLocaleStringOptions;
+    id: string;
     nome: string;
     preco: number;
     status: "pago" | "processando" | "falha";
