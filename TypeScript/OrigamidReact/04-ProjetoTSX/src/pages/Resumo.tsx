@@ -1,12 +1,13 @@
 import React from 'react'
 import { useData } from '../context/DataContext'
 import GraficoVendas from '../components/GraficoVendas';
+import Loading from '../components/Loading';
 
 const Resumo = () => {
-  const { data } = useData();
+  const { data, loading } = useData();
 
+  if (loading) return <Loading />;
   if (data === null) return null;
-
   return (
     <section>
       <div className='flex mb resumo'>
