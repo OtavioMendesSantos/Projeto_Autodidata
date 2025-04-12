@@ -6,8 +6,6 @@
     grid-template-columns: 1fr 2fr;
     gap: 100px;
     align-items: center;
-    gap: 100px;
-    align-items: center;
 }
 
 .introducao h1 {
@@ -22,7 +20,7 @@
     display: block;
     width: 130px;
     height: 100px;
-    background: url("../../assets/img/detalhe.svg") no-repeat center center;
+    background: url("../img/detalhe.svg") no-repeat center;
     position: absolute;
     top: -15px;
     left: -40px;
@@ -60,11 +58,9 @@
 @media (max-width: 400px) {
     .introducao {
         grid-template-columns: 1fr;
-        gap: 40px;
     }
 
     .introducao img {
         display: none;
-        gap: 40px;
     }
 }
