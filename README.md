@@ -25,6 +25,7 @@ Lista feita com base na documentação do [Conventional Commits](https://www.con
  Atividades  de Cursos | ✒️ `:black_nib:` | `course`
  Bug Fix | 🐛 `:bug:`	| `fix`
  Comentários | 💡 `:bulb:` | `docs`
+ Configuração	| 🔧 `:wrench:` |	`chore`
  Documentação | 📚 `:books:` | `docs`
  Em progresso |	🚧 `:construction:` | `progress`
  Estilização de Interface | 💄 `:lipstick:` | `feat`
@@ -33,7 +34,8 @@ Lista feita com base na documentação do [Conventional Commits](https://www.con
  Pequena Alteração	| 🔨 `:hammer:`| `fix`
  Refatoração |	♻️ `:recycle:` | `refactor`
  Removendo um arquivo	| 🗑️ `:wastebasket:` |	`remove`
- Teste Avulso | :trollface: `:trollface:` | `test`
+ Teste Avulso/Diversão | :trollface: `:trollface:` | `test`
+ Testes | 🧪 `:test_tube:`	| `test`
  Texto	| 📝 `:pencil:` | `text`
  Tipagem |	🏷️ `:label:` | `type`
 
